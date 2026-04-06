@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Изразцы для каминов и барбекю — CeramicaDecor</title>
+  <meta name="description" content="Изразцы ручной работы для печей и каминов. Более 30 коллекций, 150+ оттенков глазурей. Собственное производство, доставка и монтаж по Казахстану и СНГ.">
+  <link rel="canonical" href="https://ceramicadecor-kz.netlify.app/izrazcy.html">
+  <meta property="og:title" content="Изразцы для каминов и барбекю — CeramicaDecor">
+  <meta property="og:description" content="Изразцы ручной работы. Более 30 коллекций, 150+ оттенков глазурей. Собственное производство.">
+  <meta property="og:image" content="images/izrazcy_card.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_KZ">
+  <meta property="og:url" content="https://ceramicadecor-kz.netlify.app/izrazcy.html">
+  <meta property="og:site_name" content="CeramicaDecor">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/tt-ramillas-trl" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO */
+    .izrazcy-hero {
+      position: relative;
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      margin-top: var(--header-h, 80px);
+    }
+    .izrazcy-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .izrazcy-hero__bg img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .izrazcy-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(16,16,16,0.45) 0%, rgba(16,16,16,0.15) 40%, rgba(16,16,16,0.6) 80%, #101010 100%),
+        linear-gradient(to right, rgba(16,16,16,0.4) 0%, rgba(16,16,16,0.05) 60%, rgba(16,16,16,0.0) 100%);
+    }
+    .izrazcy-hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 160px 20px 100px;
+    }
+    .izrazcy-hero__title {
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      color: #fff;
+      margin: 0 0 24px;
+      line-height: 1.15;
+    }
+    .izrazcy-hero__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 740px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* STATS */
+    .izrazcy-stats {
+      background: #101010;
+      padding: 60px 0 80px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .izrazcy-stats__grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: nowrap;
+    }
+    .izrazcy-stats__item {
+      text-align: center;
+      padding: 20px 48px;
+      flex-shrink: 0;
+    }
+    .izrazcy-stats__number {
+      display: block;
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      font-weight: 400;
+      background: linear-gradient(135deg, #fff 0%, #ffa15e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .izrazcy-stats__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+    .izrazcy-stats__divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* CATALOG */
+    .izrazcy-catalog {
+      background: #101010;
+      padding: 100px 0 80px;
+    }
+    .izrazcy-catalog__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .izrazcy-catalog__layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Sidebar filters */
+    .izrazcy-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .izrazcy-filters__group {
+      margin-bottom: 24px;
+    }
+    .izrazcy-filters__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .izrazcy-filters__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .izrazcy-filters__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .izrazcy-filters__tag:hover,
+    .izrazcy-filters__tag--active {
+      color: #fff;
+      border-color: #cb3b25;
+      background: rgba(203,59,37,0.15);
+    }
+    .izrazcy-filters__extra {
+      display: none;
+    }
+    .izrazcy-filters__extra--open {
+      display: block;
+    }
+    .izrazcy-filters__toggle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #cb3b25;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0;
+      margin-top: 4px;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .izrazcy-filters__toggle:hover {
+      color: #e14c35;
+    }
+    .izrazcy-filters__toggle svg {
+      transition: transform 0.3s ease;
+    }
+    .izrazcy-filters__toggle--open svg {
+      transform: rotate(180deg);
+    }
+    .izrazcy-filters__group {
+      position: relative;
+    }
+    .izrazcy-filters__badge {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #fff;
+      background: #cb3b25;
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .izrazcy-filters__badge--visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Product grid */
+    .izrazcy-products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    @media (min-width: 1200px) {
+      .izrazcy-products {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .izrazcy-product {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .izrazcy-product:hover {
+      border-color: rgba(203,59,37,0.4);
+      transform: translateY(-3px);
+    }
+    .izrazcy-product__img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .izrazcy-product__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .izrazcy-product:hover .izrazcy-product__img img {
+      transform: scale(1.05);
+    }
+    .izrazcy-product__body {
+      padding: 20px;
+    }
+    .izrazcy-product__name {
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .izrazcy-product__art {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+    .izrazcy-product__price {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #cb3b25;
+    }
+    /* Pagination */
+    .izrazcy-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .izrazcy-pagination__btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 42px;
+      text-align: center;
+    }
+    .izrazcy-pagination__btn:hover {
+      color: #fff;
+      border-color: rgba(203,59,37,0.5);
+    }
+    .izrazcy-pagination__btn--active {
+      color: #fff;
+      background: #cb3b25;
+      border-color: #cb3b25;
+    }
+    .izrazcy-pagination__btn--disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+    .izrazcy-pagination__dots {
+      color: rgba(255,255,255,0.3);
+      padding: 0 4px;
+    }
+
+    @media (max-width: 1024px) {
+      .izrazcy-catalog__layout {
+        grid-template-columns: 220px 1fr;
+        gap: 24px;
+      }
+      .izrazcy-products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .izrazcy-catalog__layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .izrazcy-catalog__layout > * {
+        min-width: 0;
+        max-width: 100%;
+      }
+      .izrazcy-sidebar {
+        position: static;
+        overflow: hidden;
+      }
+      .izrazcy-catalog__main {
+        min-width: 0;
+        overflow: hidden;
+      }
+      .izrazcy-filters__group {
+        margin-bottom: 12px;
+      }
+      .izrazcy-filters__label {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+      }
+      .izrazcy-filters__tags {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .izrazcy-filters__tags::-webkit-scrollbar {
+        display: none;
+      }
+      .izrazcy-filters__tag {
+        font-size: 0.74rem;
+        padding: 5px 12px;
+      }
+      .izrazcy-filters__toggle {
+        font-size: 0.78rem;
+      }
+      .izrazcy-products {
+        grid-template-columns: 1fr !important;
+        gap: 8px;
+      }
+      .izrazcy-product {
+        border-radius: 8px;
+      }
+      .izrazcy-product__img {
+        aspect-ratio: 1/1;
+      }
+      .izrazcy-product__body {
+        padding: 10px;
+      }
+      .izrazcy-product__name {
+        font-size: 0.78rem;
+        -webkit-line-clamp: 2;
+        margin-bottom: 4px;
+      }
+      .izrazcy-product__art {
+        font-size: 0.68rem;
+        margin-bottom: 6px;
+      }
+      .izrazcy-product__price {
+        font-size: 0.88rem;
+      }
+    }
+
+    /* CTA */
+    .izrazcy-cta {
+      background: #101010;
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    .izrazcy-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(203,59,37,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .izrazcy-cta__inner {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .izrazcy-cta__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .izrazcy-cta__form {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .izrazcy-cta__group {
+      margin-bottom: 20px;
+    }
+    .izrazcy-cta__label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .izrazcy-cta__input {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    .izrazcy-cta__input:focus {
+      border-color: rgba(203,59,37,0.6);
+    }
+    .izrazcy-cta__input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .izrazcy-cta__submit {
+      width: 100%;
+      padding: 16px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: #cb3b25;
+      border: 1px solid #cb3b25;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
+    .izrazcy-cta__submit:hover {
+      background: #e14c35;
+      border-color: #e14c35;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(203,59,37,0.3);
+    }
+    .izrazcy-cta__privacy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      margin-top: 16px;
+      text-align: center;
+    }
+    .izrazcy-cta__privacy a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: underline;
+    }
+    .izrazcy-cta__success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      background: rgba(147,210,0,0.1);
+      border: 1px solid rgba(147,210,0,0.3);
+      border-radius: 8px;
+      color: #93d200;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-top: 16px;
+    }
+
+    /* ===== IZRAZCY PRODUCT MODAL ===== */
+    .izrazcy-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .izrazcy-modal.open {
+      display: block;
+    }
+    .izrazcy-modal__close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 10001;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    .izrazcy-modal__close:hover {
+      background: #cb3b25;
+      border-color: #cb3b25;
+    }
+    .izrazcy-modal__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px 80px;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+    }
+    .izrazcy-modal__img {
+      flex: 0 0 360px;
+      position: sticky;
+      top: 80px;
+    }
+    .izrazcy-modal__img img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      background: #1a1a1a;
+    }
+    .izrazcy-modal__content {
+      flex: 1;
+      min-width: 0;
+      padding-top: 8px;
+    }
+    .izrazcy-modal__tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(203,59,37,0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .izrazcy-modal__title {
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: #fff;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .izrazcy-modal__art {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      margin: 0 0 24px;
+    }
+    .izrazcy-modal__price {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #cb3b25;
+      margin: 0 0 4px;
+    }
+    .izrazcy-modal__price-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 0 0 28px;
+    }
+    .izrazcy-modal__specs {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .izrazcy-modal__specs li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+    }
+    .izrazcy-modal__specs li span:last-child {
+      color: #fff;
+      text-align: right;
+      font-weight: 400;
+    }
+    .izrazcy-modal__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .izrazcy-modal__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+    }
+    .izrazcy-modal__btn--wa {
+      background: #25D366;
+      color: #fff;
+    }
+    .izrazcy-modal__btn--wa:hover {
+      background: #1fb855;
+      transform: translateY(-2px);
+    }
+    .izrazcy-modal__btn--request {
+      background: #cb3b25;
+      color: #fff;
+    }
+    .izrazcy-modal__btn--request:hover {
+      background: #b5321f;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .izrazcy-modal__inner {
+        flex-direction: column;
+        padding: 56px 16px 60px;
+        gap: 20px;
+      }
+      .izrazcy-modal__img {
+        flex: none;
+        width: 100%;
+        position: static;
+      }
+      .izrazcy-modal__close {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      .izrazcy-modal__price {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .izrazcy-hero {
+        min-height: 55vh;
+      }
+      .izrazcy-hero__content {
+        padding: 130px 20px 70px;
+      }
+.izrazcy-stats__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 0;
+      }
+      .izrazcy-stats__item {
+        padding: 16px 12px;
+      }
+      .izrazcy-stats__divider {
+        display: none;
+      }
+    }
+  </style>
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1914468485855789');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1914468485855789&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <img src="images/logo.png" alt="CeramicaDecor" class="header__logo-img">
+      </a>
+
+      <nav class="header__nav" id="mainNav">
+        <ul class="header__nav-list">
+          <li><a href="catalog.html?cat=kaminy" class="header__nav-link">Камины</a></li>
+          <li><a href="catalog.html?cat=bbq" class="header__nav-link">Барбекю комплексы</a></li>
+          <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
+          <li><a href="about.html" class="header__nav-link">О компании</a></li>
+          <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+        </ul>
+        <div class="header__nav-socials">
+          <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" class="header__nav-social header__nav-social--wa" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://instagram.com/ceramicadecor.kz" target="_blank" class="header__nav-social header__nav-social--ig" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+          </a>
+        </div>
+        <a href="tel:+77027352130" class="header__nav-phone-link">+7 702 735 21 30</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" class="header__whatsapp-btn" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://instagram.com/ceramicadecor.kz" target="_blank" class="header__ig-btn" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+        </a>
+        <a href="tel:+77027352130" class="header__phone-desktop">+7 702 735 21 30</a>
+        <button class="header__burger" id="burgerBtn" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="izrazcy-hero" id="hero">
+    <div class="izrazcy-hero__bg">
+      <img src="images/palitra_izrazcy_new1.jpg" alt="Палитра изразцов CeramicaDecor" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+    <div class="izrazcy-hero__overlay"></div>
+    <div class="izrazcy-hero__content">
+      <h1 class="izrazcy-hero__title">Изразцы для каминов и&nbsp;барбекю</h1>
+      <p class="izrazcy-hero__subtitle">Керамические элементы ручной формовки для облицовки каминов, барбекю комплексов и других поверхностей. Более 40 коллекций изразцов, 150+ оттенков глазурей</p>
+    </div>
+  </section>
+
+
+
+
+  <!-- ===== КАТАЛОГ ИЗРАЗЦОВ ===== -->
+  <section class="izrazcy-catalog" id="catalog">
+    <div class="container">
+      <div class="izrazcy-catalog__header">
+        <h2 class="section-title section-title--center">Каталог изразцов и&nbsp;их&nbsp;цены</h2>
+      </div>
+
+      <div class="izrazcy-catalog__layout">
+        <!-- Сайдбар с фильтрами -->
+        <aside class="izrazcy-sidebar" id="izrazcySidebar">
+          <!-- Основные фильтры -->
+          <div class="izrazcy-filters__group" data-filter="style">
+            <span class="izrazcy-filters__label">Стиль <span class="izrazcy-filters__badge"></span></span>
+            <div class="izrazcy-filters__tags">
+              <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+              <span class="izrazcy-filters__tag">Арт Нуво</span>
+              <span class="izrazcy-filters__tag">Голландский</span>
+              <span class="izrazcy-filters__tag">Гжель</span>
+              <span class="izrazcy-filters__tag">Прованс</span>
+              <span class="izrazcy-filters__tag">Русский</span>
+              <span class="izrazcy-filters__tag">Модерн</span>
+              <span class="izrazcy-filters__tag">Современный</span>
+              <span class="izrazcy-filters__tag">Классика</span>
+              <span class="izrazcy-filters__tag">Без стиля</span>
+            </div>
+          </div>
+
+          <div class="izrazcy-filters__group" data-filter="color">
+            <span class="izrazcy-filters__label">Цвет <span class="izrazcy-filters__badge"></span></span>
+            <div class="izrazcy-filters__tags">
+              <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+              <span class="izrazcy-filters__tag">Белые/бежевые</span>
+              <span class="izrazcy-filters__tag">Зелёные</span>
+              <span class="izrazcy-filters__tag">Синие</span>
+              <span class="izrazcy-filters__tag">Голубые</span>
+              <span class="izrazcy-filters__tag">Красные/оранжевые</span>
+              <span class="izrazcy-filters__tag">Коричневые</span>
+              <span class="izrazcy-filters__tag">Жёлтые</span>
+              <span class="izrazcy-filters__tag">Серые</span>
+              <span class="izrazcy-filters__tag">Чёрные</span>
+            </div>
+          </div>
+
+          <div class="izrazcy-filters__group" data-filter="size">
+            <span class="izrazcy-filters__label">Типоразмер <span class="izrazcy-filters__badge"></span></span>
+            <div class="izrazcy-filters__tags">
+              <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+              <span class="izrazcy-filters__tag">150x150</span>
+              <span class="izrazcy-filters__tag">200x200</span>
+              <span class="izrazcy-filters__tag">100x100</span>
+              <span class="izrazcy-filters__tag">300x300</span>
+              <span class="izrazcy-filters__tag">200x300</span>
+              <span class="izrazcy-filters__tag">100x300</span>
+              <span class="izrazcy-filters__tag">100x200</span>
+              <span class="izrazcy-filters__tag">200x250</span>
+              <span class="izrazcy-filters__tag">250x300</span>
+            </div>
+          </div>
+
+          <!-- Кнопка "Ещё фильтры" -->
+          <button class="izrazcy-filters__toggle" id="toggleExtra">
+            <span>Ещё фильтры</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <!-- Скрытые фильтры -->
+          <div class="izrazcy-filters__extra" id="extraFilters">
+            <div class="izrazcy-filters__group" data-filter="type">
+              <span class="izrazcy-filters__label">Тип <span class="izrazcy-filters__badge"></span></span>
+              <div class="izrazcy-filters__tags">
+                <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+                <span class="izrazcy-filters__tag">С росписью</span>
+                <span class="izrazcy-filters__tag">Однотонные</span>
+              </div>
+            </div>
+
+            <div class="izrazcy-filters__group" data-filter="surface">
+              <span class="izrazcy-filters__label">Поверхность <span class="izrazcy-filters__badge"></span></span>
+              <div class="izrazcy-filters__tags">
+                <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+                <span class="izrazcy-filters__tag">Гладкие</span>
+                <span class="izrazcy-filters__tag">Рельефные</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Товары -->
+        <div class="izrazcy-catalog__main">
+          <div class="izrazcy-products" id="izrazcyGrid"></div>
+          <div class="izrazcy-pagination" id="izrazcyPagination"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ОСТАВИТЬ ЗАЯВКУ ===== -->
+  <section class="izrazcy-cta" id="contact">
+    <div class="container">
+      <div class="izrazcy-cta__inner">
+        <h2 class="section-title section-title--center">Оставьте заявку</h2>
+        <p class="izrazcy-cta__subtitle">Мы перезвоним, поможем подобрать коллекцию изразцов и рассчитаем стоимость вашего проекта</p>
+        <form class="izrazcy-cta__form" id="izrazcyForm" name="izrazcy" method="POST" data-netlify="true">
+          <div class="izrazcy-cta__group">
+            <label class="izrazcy-cta__label">Ваше имя</label>
+            <input type="text" name="name" class="izrazcy-cta__input" placeholder="Введите имя">
+          </div>
+          <div class="izrazcy-cta__group">
+            <label class="izrazcy-cta__label">Телефон</label>
+            <input type="tel" name="phone" class="izrazcy-cta__input" value="+7" placeholder="+7">
+          </div>
+          <button type="submit" class="izrazcy-cta__submit">Отправить заявку</button>
+          <p class="izrazcy-cta__privacy">Нажимая &laquo;Отправить заявку&raquo;, вы соглашаетесь с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></p>
+          <div class="izrazcy-cta__success" id="izrazcySuccess">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer__glow"></div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <img src="images/logo.png" alt="CeramicaDecor" class="footer__logo-img">
+          </a>
+          <p class="footer__tagline">Керамические премиальные облицовки.<br>14+ лет, своё производство, монтаж.<br>Под ключ по Казахстану и СНГ</p>
+        </div>
+        <div class="footer__columns">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Каталог</h4>
+            <ul class="footer__col-list">
+              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
+              <li><a href="izrazcy.html">Изразцы</a></li>
+              <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Компания</h4>
+            <ul class="footer__col-list">
+              <li><a href="about.html">О нас</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Контакты</h4>
+            <ul class="footer__col-list">
+              <li><a href="tel:+77027352130">+7 702 735 21 30</a></li>
+              <li><a href="mailto:info@ceramicadecor.kz">info@ceramicadecor.kz</a></li>
+            </ul>
+            <div class="footer__socials">
+              <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" aria-label="WhatsApp" class="footer__social--wa">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="https://instagram.com/ceramicadecor.kz" target="_blank" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2013&ndash;2026 CeramicaDecor. Все права защищены.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" target="_blank">Политика конфиденциальности</a>
+          <a href="terms.html" target="_blank">Пользовательское соглашение</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== IZRAZCY PRODUCT MODAL ===== -->
+  <div class="izrazcy-modal" id="izrazcyModal">
+    <button class="izrazcy-modal__close" id="izrazcyModalClose">&times;</button>
+    <div class="izrazcy-modal__inner" id="izrazcyModalContent">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="izrazcy-data.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ===== CATALOG =====
+    var PER_PAGE = 24;
+    var currentPage = 1;
+    var grid = document.getElementById('izrazcyGrid');
+    var paginationEl = document.getElementById('izrazcyPagination');
+    var allData = typeof izrazcyCatalog !== 'undefined' ? izrazcyCatalog : [];
+    var filtered = allData.slice();
+
+    function formatPrice(p) {
+      if (!p) return '';
+      var tenge = Math.round(p * 6.5);
+      return tenge.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' \u20B8';
+    }
+
+    function updateBadges() {
+      var groups = document.querySelectorAll('[data-filter]');
+      for (var i = 0; i < groups.length; i++) {
+        var badge = groups[i].querySelector('.izrazcy-filters__badge');
+        if (!badge) continue;
+        var val = getActiveFilter(groups[i]);
+        if (val) {
+          badge.textContent = filtered.length;
+          badge.classList.add('izrazcy-filters__badge--visible');
+        } else {
+          badge.classList.remove('izrazcy-filters__badge--visible');
+        }
+      }
+    }
+
+    function renderProducts(page) {
+      var totalPages = Math.ceil(filtered.length / PER_PAGE);
+      var start = (page - 1) * PER_PAGE;
+      var end = Math.min(start + PER_PAGE, filtered.length);
+      var html = '';
+      for (var i = start; i < end; i++) {
+        var item = filtered[i];
+        var imgUrl = 'https://ceramicadecor.ru/userdata/product/preview/' + item.img + '_500.jpg';
+        html += '<div class="izrazcy-product" data-idx="' + i + '">' +
+          '<div class="izrazcy-product__img">' +
+            '<img src="' + imgUrl + '" alt="' + (item.n || '') + '" loading="lazy">' +
+          '</div>' +
+          '<div class="izrazcy-product__body">' +
+            '<h3 class="izrazcy-product__name">' + (item.n || '') + '</h3>' +
+            (item.a ? '<p class="izrazcy-product__art">Арт. ' + item.a + '</p>' : '') +
+            (item.p ? '<p class="izrazcy-product__price">' + formatPrice(item.p) + '</p>' : '') +
+          '</div>' +
+        '</div>';
+      }
+      if (filtered.length === 0) {
+        html = '<p style="color:rgba(255,255,255,0.4);grid-column:1/-1;text-align:center;padding:60px 0;">Ничего не найдено. Попробуйте изменить фильтры.</p>';
+      }
+      grid.innerHTML = html;
+    }
+
+    function renderPagination(page) {
+      var totalPages = Math.ceil(filtered.length / PER_PAGE);
+      if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
+      var html = '';
+      html += '<button class="izrazcy-pagination__btn' + (page <= 1 ? ' izrazcy-pagination__btn--disabled' : '') + '" data-page="' + (page - 1) + '">&laquo;</button>';
+      var pages = [1];
+      if (page > 3) pages.push('...');
+      for (var i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + 1); i++) pages.push(i);
+      if (page < totalPages - 2) pages.push('...');
+      if (totalPages > 1) pages.push(totalPages);
+      for (var j = 0; j < pages.length; j++) {
+        if (pages[j] === '...') {
+          html += '<span class="izrazcy-pagination__dots">...</span>';
+        } else {
+          html += '<button class="izrazcy-pagination__btn' + (pages[j] === page ? ' izrazcy-pagination__btn--active' : '') + '" data-page="' + pages[j] + '">' + pages[j] + '</button>';
+        }
+      }
+      html += '<button class="izrazcy-pagination__btn' + (page >= totalPages ? ' izrazcy-pagination__btn--disabled' : '') + '" data-page="' + (page + 1) + '">&raquo;</button>';
+      paginationEl.innerHTML = html;
+    }
+
+    function goToPage(page) {
+      var totalPages = Math.ceil(filtered.length / PER_PAGE);
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+      renderProducts(page);
+      renderPagination(page);
+      document.getElementById('catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    paginationEl.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-page]');
+      if (btn) goToPage(parseInt(btn.getAttribute('data-page')));
+    });
+
+    // ===== FILTERING =====
+    var activeFilters = {};
+
+    function getActiveFilter(group) {
+      var tags = group.querySelectorAll('.izrazcy-filters__tag');
+      for (var i = 0; i < tags.length; i++) {
+        if (tags[i].classList.contains('izrazcy-filters__tag--active') && tags[i].textContent.trim() !== 'Все') {
+          return tags[i].textContent.trim().toLowerCase();
+        }
+      }
+      return null;
+    }
+
+    var STYLE_MAP = {
+      'арт нуво':    ['арт нуво'],
+      'голландский': ['голланд', 'синей росписью', 'голландскими мотивами'],
+      'гжель':       ['гжель'],
+      'прованс':     ['камея', 'прованс'],
+      'русский':     ['усадьба', 'птицы', 'птичк', 'сувенир', 'этника'],
+      'модерн':      ['модерн'],
+      'современный': ['сохо', 'луна', 'маджестик', 'роллерс', 'универсал', 'минималист', 'неоготика'],
+      'классика':    ['альбион', 'версаль', 'дорф', 'венская', 'бристоль', 'аврора', 'ар деко', 'лион', 'лорд'],
+    };
+
+    var COLOR_STEMS = {
+      'белые/бежевые':      ['бел', 'беж', 'слонов', 'молочн', 'айвор'],
+      'зелёные':            ['зелен', 'изумруд', 'малахит', 'оливков'],
+      'синие':              ['сине', 'сини', 'кобальт', 'сапфир'],
+      'голубые':            ['голуб', 'лазур', 'аквамар'],
+      'красные/оранжевые':  ['красн', 'оранж', 'бордо', 'терракот', 'рубин'],
+      'коричневые':         ['коричн', 'шоколад', 'кофейн', 'каштан'],
+      'жёлтые':             ['желт', 'золот', 'янтар'],
+      'серые':              ['серо', 'серый', 'серая', 'серых', 'серые', 'антрацит', 'графит'],
+      'чёрные':             ['черн'],
+      'фиолетовые':         ['фиолет', 'сирен', 'лилов', 'баклажан', 'аметист', 'пурпур'],
+    };
+
+    function matchesFilter(item, filterName, value) {
+      var text = (item.n + ' ' + item.l + ' ' + item.a).toLowerCase().replace(/ё/g, 'е');
+      if (filterName === 'type') {
+        if (item.type) return item.type === value;
+        if (value === 'с росписью') return text.indexOf('роспис') !== -1 || text.indexOf('расписн') !== -1;
+        if (value === 'однотонные') return text.indexOf('однотонн') !== -1;
+      }
+      if (filterName === 'size') {
+        var SIZE_ALTS = {
+          '100x100': ['100h100','100x100','10x10','10h10'],
+          '150x150': ['150h150','150x150','15x15','15h15'],
+          '200x200': ['200h200','200x200','20x20','20h20'],
+          '200x300': ['200h300','200x300','20x30','20h30'],
+          '300x300': ['300h300','300x300','30x30','30h30'],
+          '100x200': ['100h200','100x200','10x20','10h20'],
+          '100x300': ['100h300','100x300','10x30','10h30'],
+          '200x250': ['200h250','200x250'],
+          '250x300': ['250h300','250x300'],
+        };
+        var alts = SIZE_ALTS[value] || [value.replace('x','h'), value];
+        return alts.some(function(p){ return text.indexOf(p) !== -1; });
+      }
+      if (filterName === 'style') {
+        var styleKey = value.replace(/ё/g, 'е');
+        // Сначала проверяем ручную метку item.style
+        if (item.style) {
+          var itemStyle = item.style.replace(/ё/g, 'е');
+          if (styleKey === 'без стиля') return itemStyle === 'без стиля';
+          return itemStyle === styleKey;
+        }
+        // Без ручной метки: "без стиля" — товары не попадающие ни в один стиль по keywords
+        if (styleKey === 'без стиля') {
+          for (var sk2 in STYLE_MAP) {
+            if (STYLE_MAP[sk2].some(function(s){ return text.indexOf(s.replace(/ё/g,'е')) !== -1; })) return false;
+          }
+          return true;
+        }
+        // Keyword-matching по STYLE_MAP
+        var stems = null;
+        for (var sk in STYLE_MAP) {
+          if (sk.replace(/ё/g, 'е') === styleKey) { stems = STYLE_MAP[sk]; break; }
+        }
+        if (!stems) return text.indexOf(styleKey) !== -1;
+        return stems.some(function(s){ return text.indexOf(s.replace(/ё/g,'е')) !== -1; });
+      }
+      if (filterName === 'color') {
+        // Сначала проверяем поле colors (ручная разметка)
+        if (item.colors && item.colors.length) {
+          var valNormC = value.replace(/ё/g, 'е');
+          for (var ci = 0; ci < item.colors.length; ci++) {
+            if (item.colors[ci].replace(/ё/g, 'е') === valNormC) return true;
+          }
+        }
+        // Затем — стем-поиск по названию
+        var valNorm = value.replace(/ё/g, 'е');
+        var stems = null;
+        for (var key in COLOR_STEMS) {
+          if (key.replace(/ё/g, 'е').toLowerCase() === valNorm) {
+            stems = COLOR_STEMS[key];
+            break;
+          }
+        }
+        if (!stems) return text.indexOf(valNorm) !== -1;
+        for (var si = 0; si < stems.length; si++) {
+          if (text.indexOf(stems[si].replace(/ё/g, 'е')) !== -1) return true;
+        }
+        return false;
+      }
+      if (filterName === 'surface') {
+        // Ручная метка имеет приоритет
+        if (item.surface) {
+          return item.surface === value;
+        }
+        // Гладкие — только если в названии есть корень «гладк»
+        var isSmooth = text.indexOf('гладк') !== -1;
+        if (value === 'гладкие') return isSmooth;
+        if (value === 'рельефные') return !isSmooth;
+      }
+      return text.indexOf(value) !== -1;
+    }
+
+    function applyFilters() {
+      var groups = document.querySelectorAll('[data-filter]');
+      var filters = [];
+      for (var i = 0; i < groups.length; i++) {
+        var val = getActiveFilter(groups[i]);
+        if (val) filters.push({ name: groups[i].getAttribute('data-filter'), value: val });
+      }
+
+      filtered = allData.filter(function(item) {
+        for (var j = 0; j < filters.length; j++) {
+          if (!matchesFilter(item, filters[j].name, filters[j].value)) return false;
+        }
+        return true;
+      });
+
+      currentPage = 1;
+      updateBadges();
+      renderProducts(1);
+      renderPagination(1);
+    }
+
+    // Filter tag clicks
+    document.querySelectorAll('.izrazcy-filters__group').forEach(function(group) {
+      group.addEventListener('click', function(e) {
+        var tag = e.target.closest('.izrazcy-filters__tag');
+        if (!tag) return;
+        group.querySelectorAll('.izrazcy-filters__tag').forEach(function(t) {
+          t.classList.remove('izrazcy-filters__tag--active');
+        });
+        tag.classList.add('izrazcy-filters__tag--active');
+        applyFilters();
+      });
+    });
+
+    // Toggle extra filters
+    var toggleBtn = document.getElementById('toggleExtra');
+    var extraFilters = document.getElementById('extraFilters');
+    if (toggleBtn && extraFilters) {
+      toggleBtn.addEventListener('click', function() {
+        var isOpen = extraFilters.classList.toggle('izrazcy-filters__extra--open');
+        toggleBtn.classList.toggle('izrazcy-filters__toggle--open', isOpen);
+        toggleBtn.querySelector('span').textContent = isOpen ? 'Скрыть фильтры' : 'Ещё фильтры';
+      });
+    }
+
+    // Initial render
+    renderProducts(1);
+    renderPagination(1);
+
+    // ===== PRODUCT MODAL =====
+    var izrazcyModal = document.getElementById('izrazcyModal');
+    var izrazcyModalContent = document.getElementById('izrazcyModalContent');
+    var izrazcyModalClose = document.getElementById('izrazcyModalClose');
+
+    function extractIzrazcySize(item) {
+      var text = ((item.n || '') + ' ' + (item.l || '')).toLowerCase();
+      var sizeMap = [
+        ['250×300', ['250h300','250x300']],
+        ['200×300', ['200h300','200x300','20h30','20x30']],
+        ['200×250', ['200h250','200x250']],
+        ['100×300', ['100h300','100x300','10h30','10x30']],
+        ['100×200', ['100h200','100x200','10h20','10x20']],
+        ['300×300', ['300h300','300x300','30h30','30x30']],
+        ['200×200', ['200h200','200x200','20h20','20x20']],
+        ['150×150', ['150h150','150x150','15h15','15x15']],
+        ['100×100', ['100h100','100x100','10h10','10x10']],
+      ];
+      for (var s = 0; s < sizeMap.length; s++) {
+        var alts = sizeMap[s][1];
+        for (var a = 0; a < alts.length; a++) {
+          if (text.indexOf(alts[a]) !== -1) return sizeMap[s][0] + ' мм';
+        }
+      }
+      return null;
+    }
+
+    function extractIzrazcyCollection(item) {
+      var m = (item.n || '').match(/коллеци[иейю]\s+([^,\n]+?)(?:\s+арт|\s*$)/i);
+      if (m) return m[1].trim();
+      return null;
+    }
+
+    function extractIzrazcyType(item) {
+      var l = item.l || '';
+      var typeMap = [
+        ['raspisnye', 'Расписные'],
+        ['tsvetnye', 'Цветные'],
+        ['zelenye', 'Зелёные'],
+        ['provans', 'Прованс'],
+        ['russkie', 'Русские'],
+        ['rumpoj', 'С румпой'],
+        ['golubye', 'Голубые'],
+        ['sinye', 'Синие'],
+        ['krasnye', 'Красные'],
+        ['belye', 'Белые'],
+        ['zhelty', 'Жёлтые'],
+        ['odnotonnye', 'Однотонные'],
+        ['relefnye', 'Рельефные'],
+      ];
+      for (var i = 0; i < typeMap.length; i++) {
+        if (l.indexOf(typeMap[i][0]) !== -1) return typeMap[i][1];
+      }
+      return null;
+    }
+
+    function openIzrazcyModal(item) {
+      if (!izrazcyModal || !izrazcyModalContent) return;
+      var imgUrl = 'https://ceramicadecor.ru/userdata/product/preview/' + item.img + '_500.jpg';
+      var waText = encodeURIComponent('Здравствуйте! Интересует изразец «' + (item.n || '') + '»' + (item.a ? ' (арт. ' + item.a + ')' : '') + '. Расскажите подробнее.');
+      var waUrl = 'https://wa.me/77027352130?text=' + waText;
+
+      var collection = extractIzrazcyCollection(item);
+      var size = extractIzrazcySize(item);
+      var type = extractIzrazcyType(item);
+
+      var specsHtml = '';
+      var specs = [];
+      if (item.a) specs.push(['Артикул', item.a]);
+      if (size) specs.push(['Типоразмер', size]);
+      if (collection) specs.push(['Коллекция', collection]);
+      if (type) specs.push(['Тип', type]);
+      if (item.colors && item.colors.length) {
+        var colorsStr = item.colors.map(function(c){ return c.charAt(0).toUpperCase() + c.slice(1); }).join(', ');
+        specs.push(['Цвет', colorsStr]);
+      }
+      if (item.style) specs.push(['Стиль', item.style.charAt(0).toUpperCase() + item.style.slice(1)]);
+      if (specs.length) {
+        specsHtml = '<ul class="izrazcy-modal__specs">';
+        for (var si = 0; si < specs.length; si++) {
+          specsHtml += '<li><span>' + specs[si][0] + '</span><span>' + specs[si][1] + '</span></li>';
+        }
+        specsHtml += '</ul>';
+      }
+
+      var WA_SVG = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+
+      izrazcyModalContent.innerHTML =
+        '<div class="izrazcy-modal__img">' +
+          '<img src="' + imgUrl + '" alt="' + (item.n || '') + '" loading="lazy">' +
+        '</div>' +
+        '<div class="izrazcy-modal__content">' +
+          (collection ? '<span class="izrazcy-modal__tag">' + collection + '</span>' : '') +
+          '<h2 class="izrazcy-modal__title">' + (item.n || '') + '</h2>' +
+          (item.a ? '<p class="izrazcy-modal__art">Арт. ' + item.a + '</p>' : '') +
+          (item.p ? '<p class="izrazcy-modal__price">' + formatPrice(item.p) + '</p><p class="izrazcy-modal__price-label">Цена за 1 штуку, с учётом доставки уточняйте</p>' : '') +
+          specsHtml +
+          '<div class="izrazcy-modal__actions">' +
+            '<a href="' + waUrl + '" target="_blank" class="izrazcy-modal__btn izrazcy-modal__btn--wa">' + WA_SVG + ' WhatsApp</a>' +
+            '<button class="izrazcy-modal__btn izrazcy-modal__btn--request" onclick="closeIzrazcyModal(); setTimeout(function(){ document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'}); }, 300);">Оставить заявку</button>' +
+          '</div>' +
+        '</div>';
+
+      izrazcyModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeIzrazcyModal() {
+      if (izrazcyModal) izrazcyModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (izrazcyModalClose) izrazcyModalClose.addEventListener('click', closeIzrazcyModal);
+    izrazcyModal && izrazcyModal.addEventListener('click', function(e) {
+      if (e.target === izrazcyModal) closeIzrazcyModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeIzrazcyModal();
+    });
+
+    // Grid card click → open modal
+    grid.addEventListener('click', function(e) {
+      var card = e.target.closest('.izrazcy-product');
+      if (!card) return;
+      var idx = parseInt(card.getAttribute('data-idx'));
+      if (!isNaN(idx) && filtered[idx]) openIzrazcyModal(filtered[idx]);
+    });
+
+    // ===== FORM =====
+    var form = document.getElementById('izrazcyForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        }).then(function() {
+          document.getElementById('izrazcySuccess').style.display = 'block';
+          form.reset();
+        }).catch(function() {
+          alert('Произошла ошибка. Позвоните нам: +7 702 735 21 30');
+        });
+      });
+    }
+  });
+  </script>
+</body>
+</html>
