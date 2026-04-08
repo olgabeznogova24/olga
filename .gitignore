@@ -8,6 +8,5 @@ node_modules/
 .claude/
 
 # Large image folders (stored separately, not in git)
-images/izrazcy/
 images/izrazcy-360/
 images/catalog-photos/
