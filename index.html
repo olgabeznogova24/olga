@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="images/hero_desktop.webp" media="(min-width: 769px)">
-  <link rel="preload" as="image" type="image/webp" href="images/hero_main.webp" media="(max-width: 768px)">
+  <link rel="preload" as="image" type="image/webp" href="images/hero_main@2x.webp" imagesrcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" media="(max-width: 768px)">
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Ramillas/TT_Ramillas_Light.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Commons_Pro/TT_Commons_Pro_Regular.woff2" crossorigin>
   <link rel="preload" href="https://fonts.cdnfonts.com/css/tt-ramillas-trl" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -146,7 +146,8 @@
       <picture>
         <source media="(min-width: 769px)" srcset="images/hero_desktop.webp" type="image/webp">
         <source media="(min-width: 769px)" srcset="images/hero_desktop.jpg">
-        <source srcset="images/hero_main.webp" type="image/webp">
+        <source srcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" type="image/webp">
+        <source srcset="images/hero_main@2x.jpg 2x, images/hero_main.jpg 1x">
         <img src="images/hero_main.jpg" alt="Изразцовый камин с огнём в интерьере" loading="eager" fetchpriority="high" decoding="async">
       </picture>
     </div>
