@@ -476,7 +476,7 @@ ul, ol {
 
 @media (max-width: 768px) {
   .hero__bg img {
-    object-position: 35% center;
+    object-position: center center;
   }
 }
 
