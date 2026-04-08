@@ -3761,7 +3761,7 @@ ul, ol {
 .square_blocks_3 .blocks .one_block .image img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: auto;
   object-fit: cover;
   margin: 0px auto;
   position: relative;
@@ -3820,11 +3820,12 @@ ul, ol {
     margin-bottom: 12px;
   }
   .square_blocks_3 .blocks .one_block .image img {
-    max-width: 180px;
+    width: 180px;
+    max-width: 100%;
     margin: 0;
     border-radius: 8px;
-    aspect-ratio: auto;
-    object-fit: initial;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
   }
   .square_blocks_3 .blocks .one_block .text {
     width: 100%;
