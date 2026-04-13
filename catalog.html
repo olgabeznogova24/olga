@@ -29,8 +29,12 @@
       padding: 160px 0 140px;
       text-align: center;
       position: relative;
-      background: url('images/izrazcy_card.webp') center/cover no-repeat;
+      background: url('images/kamin_pticy_new_2.jpg') center 86%/cover no-repeat;
       margin-bottom: -60px;
+    }
+    .catalog-hero--bbq {
+      background-image: url('images/barbekyu_card_new.jpg');
+      background-position: center 23%;
     }
     .catalog-hero::before {
       content: '';
@@ -56,6 +60,9 @@
       color: rgba(255,255,255,0.6);
       font-weight: 300;
       margin: 0;
+    }
+    @media (max-width: 768px) {
+      .catalog-hero__subtitle br { display: none; }
     }
 
     /* ===== CATALOG FILTER TABS ===== */
@@ -276,6 +283,23 @@
     .product-card__btn:hover {
       background: rgba(255,255,255,0.08);
       border-color: rgba(255,255,255,0.3);
+    }
+    .product-card__btn--details {
+      background: none;
+      border: none;
+      padding: 0;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      font-weight: 400;
+      text-decoration: underline;
+      gap: 4px;
+      flex-basis: 100%;
+      align-self: flex-start;
+    }
+    .product-card__btn--details:hover {
+      background: none;
+      border: none;
+      color: #fff;
     }
     .product-card__btn--wa {
       border-color: #25D366;
@@ -721,7 +745,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
     }
     .product-modal__description h3 {
       font-family: 'TT Ramillas Trl', serif;
@@ -770,11 +794,16 @@
     /* Price & Actions */
     .product-modal__bottom {
       display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .product-modal__prices {
+      display: flex;
       align-items: center;
       gap: 24px;
       flex-wrap: wrap;
-      padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
     .product-modal__price {
       font-family: 'Inter', sans-serif;
@@ -789,11 +818,17 @@
       font-weight: 300;
       margin-top: 2px;
     }
+    .product-modal__actions {
+      display: flex;
+      gap: 12px;
+    }
     .product-modal__wa-btn {
+      flex: 1;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 14px 32px;
+      padding: 14px 20px;
       border-radius: 100px;
       background: #25D366;
       color: #fff;
@@ -814,6 +849,13 @@
     @media (max-width: 768px) {
       .catalog-hero {
         padding: 130px 0 50px;
+      }
+      .catalog-hero--bbq {
+        background-position: center 50% !important;
+      }
+      .catalog-hero__title {
+        font-size: clamp(2rem, 5vw, 4rem);
+        word-spacing: -4px;
       }
       .catalog-filters__tabs {
         justify-content: flex-start;
@@ -858,16 +900,28 @@
       .product-card__arrow {
         opacity: 0.7;
       }
+      .product-modal__info {
+        margin-bottom: 0;
+      }
       .product-modal__bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        padding: 20px 0;
+        gap: 12px;
+      }
+      .product-modal__wa-btn {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+        gap: 6px;
       }
     }
     @media (max-width: 480px) {
+      .catalog-filters__tabs {
+        justify-content: center;
+        gap: 6px;
+        padding: 4px 12px;
+      }
       .catalog-filters__tab {
-        padding: 8px 18px;
-        font-size: 0.85rem;
+        padding: 7px 12px;
+        font-size: 0.78rem;
       }
       .product-card__actions {
         flex-direction: column;
@@ -910,6 +964,7 @@
           <li><a href="catalog.html?cat=kaminy" class="header__nav-link">Камины</a></li>
           <li><a href="catalog.html?cat=bbq" class="header__nav-link">Барбекю комплексы</a></li>
           <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
+          <li><a href="ready.html" class="header__nav-link">Печи-камины из наличия</a></li>
           <li><a href="about.html" class="header__nav-link">О компании</a></li>
           <li><a href="index.html#contact" class="header__nav-link">Контакты</a></li>
         </ul>
@@ -917,7 +972,7 @@
           <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" class="header__nav-social header__nav-social--wa" aria-label="WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
-          <a href="https://instagram.com/ceramicadecor.kz" target="_blank" class="header__nav-social header__nav-social--ig" aria-label="Instagram">
+          <a href="https://instagram.com/ceramicadecor.ru" target="_blank" class="header__nav-social header__nav-social--ig" aria-label="Instagram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
           </a>
         </div>
@@ -929,7 +984,7 @@
         <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" class="header__whatsapp-btn" aria-label="WhatsApp">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
-        <a href="https://instagram.com/ceramicadecor.kz" target="_blank" class="header__ig-btn" aria-label="Instagram">
+        <a href="https://instagram.com/ceramicadecor.ru" target="_blank" class="header__ig-btn" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
         </a>
         <a href="tel:+77027352130" class="header__phone-desktop">+7 702 735 21 30</a>
@@ -1032,13 +1087,13 @@
             <h4 class="footer__col-title">Контакты</h4>
             <ul class="footer__col-list">
               <li><a href="tel:+77027352130">+7 702 735 21 30</a></li>
-              <li><a href="mailto:info@ceramicadecor.kz">info@ceramicadecor.kz</a></li>
+              <li><a href="mailto:info@ceramicadecor.ru">info@ceramicadecor.ru</a></li>
             </ul>
             <div class="footer__socials">
               <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" aria-label="WhatsApp" class="footer__social--wa">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               </a>
-              <a href="https://instagram.com/ceramicadecor.kz" target="_blank" aria-label="Instagram">
+              <a href="https://instagram.com/ceramicadecor.ru" target="_blank" aria-label="Instagram">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#fff" stroke-width="1.3"/><circle cx="12" cy="12" r="5" stroke="#fff" stroke-width="1.3"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>
               </a>
             </div>
@@ -1946,20 +2001,24 @@
           '</div>' +
         '</div>' +
         '<div class="product-modal__bottom">' +
-          '<div>' +
-            '<div class="product-modal__price">' + p.price + ' &#8376;</div>' +
-            '<div class="product-modal__price-label">Стоимость облицовки</div>' +
+          '<div class="product-modal__prices">' +
+            '<div>' +
+              '<div class="product-modal__price">' + p.price + ' &#8376;</div>' +
+              '<div class="product-modal__price-label">Стоимость облицовки</div>' +
+            '</div>' +
+            (p.priceTurnkey ? '<div>' +
+              '<div class="product-modal__price">' + p.priceTurnkey + ' &#8376;</div>' +
+              '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Стоимость под ключ (конструктив, облицовка, работа)' : 'Стоимость под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
+            '</div>' : '') +
           '</div>' +
-          (p.priceTurnkey ? '<div>' +
-            '<div class="product-modal__price">' + p.priceTurnkey + ' &#8376;</div>' +
-            '<div class="product-modal__price-label">Под ключ</div>' +
-          '</div>' : '') +
-          '<button class="product-modal__wa-btn" style="background:#cb3b25;border:none;cursor:pointer;" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
-            'Оставить заявку' +
-          '</button>' +
-          '<a href="https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Интересует ' + p.name + ' (' + p.price + ' ₸). Хочу узнать подробнее о стоимости и сроках.') + '" target="_blank" class="product-modal__wa-btn">' +
-            WA_SVG + ' Связаться в WhatsApp' +
-          '</a>' +
+          '<div class="product-modal__actions">' +
+            '<button class="product-modal__wa-btn" style="background:#cb3b25;" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
+              'Оставить заявку' +
+            '</button>' +
+            '<a href="https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent('Здравствуйте! Интересует ' + p.name + ' (' + p.price + ' ₸). Хочу узнать подробнее о стоимости и сроках.') + '" target="_blank" class="product-modal__wa-btn">' +
+              WA_SVG + ' WhatsApp' +
+            '</a>' +
+          '</div>' +
         '</div>' +
         (function() {
           var rev = getReview(p.name);
@@ -1970,23 +2029,25 @@
             { yt: 'KWdDdeYNZss', label: 'Камин «Бристоль». Отзыв клиента' },
             { yt: 'NbW0S_vl7sY', label: 'Камин «Дорф». Отзыв заказчиков' },
             { yt: 'qd3QKBKgHwE', label: 'Камин «Универсал». Отзыв заказчицы' },
-            { yt: 'dg02wO84kMk', label: 'Камин «Тюльпан». Отзыв заказчицы' }
+            { yt: 'dg02wO84kMk', label: 'Камин «Тюльпан». Отзыв заказчицы' },
+            { yt: 'Zg6GQC-ntYs', label: 'Камин «Маджестик». Отзыв дизайнера' },
+            { yt: 'edtAC1ZvXgY', label: 'Печь-голландка. Отзыв хозяйки' }
           ];
           var items = [];
           if (rev) {
             items.push(rev);
             allReviews.forEach(function(r) {
-              if (r.yt !== rev.yt && items.length < 3) items.push(r);
+              if (r.yt !== rev.yt) items.push(r);
             });
           } else {
-            items = allReviews.slice(0, 3);
+            items = allReviews.slice();
           }
           var html = '<div class="product-modal__reviews">' +
             '<h3>Видеоотзывы клиентов</h3>' +
             '<div class="product-modal__reviews-grid">';
           items.forEach(function(r) {
             html += '<a href="https://www.youtube.com/watch?v=' + r.yt + '" target="_blank" class="product-modal__review-item">' +
-              '<img src="https://img.youtube.com/vi/' + r.yt + '/hqdefault.jpg" alt="' + r.label + '" loading="lazy">' +
+              '<img src="https://img.youtube.com/vi/' + r.yt + '/maxresdefault.jpg" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=\'https://img.youtube.com/vi/' + r.yt + '/mqdefault.jpg\'}" alt="' + r.label + '" loading="lazy">' +
               '<div class="product-modal__review-play"><svg viewBox="0 0 16 16" fill="#fff"><path d="M5 3l8 5-8 5V3z"/></svg></div>' +
               '<div class="product-modal__review-name">' + r.label + '</div>' +
             '</a>';
@@ -2069,6 +2130,15 @@
     var validCategories = ['kaminy', 'bbq'];
     var activeCategory = 'kaminy';
 
+    var categoryTitles = { kaminy: 'Камины', bbq: 'Барбекю комплексы' };
+    var categorySubtitles = {
+      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и надежности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений.',
+      bbq: 'Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.<br> Продуманная эргономика, широкий выбор дизайнерских решений, фасадная технология.'
+    };
+    var heroTitle = document.querySelector('.catalog-hero__title');
+    var heroSubtitle = document.querySelector('.catalog-hero__subtitle');
+    var heroSection = document.querySelector('.catalog-hero');
+
     function setActiveTab(category) {
       if (validCategories.indexOf(category) === -1) category = 'kaminy';
       activeCategory = category;
@@ -2078,6 +2148,15 @@
           tab.classList.add('catalog-filters__tab--active');
         }
       });
+      if (heroSection) {
+        if (category === 'bbq') {
+          heroSection.classList.add('catalog-hero--bbq');
+        } else {
+          heroSection.classList.remove('catalog-hero--bbq');
+        }
+      }
+      if (heroTitle) heroTitle.textContent = categoryTitles[category] || 'Каталог';
+      if (heroSubtitle) heroSubtitle.innerHTML = categorySubtitles[category] || '';
       renderCards(category);
     }
 
@@ -2192,5 +2271,24 @@
   })();
   </script>
   <script src="search.js"></script>
+
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться вверх">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('scrollToTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }, { passive: true });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
 </body>
 </html>

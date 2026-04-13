@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Позиция баннера — Барбекю комплексы</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a1a; font-family: 'Inter', Arial, sans-serif; color: #fff; }
+
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 24px;
+      width: 280px;
+      backdrop-filter: blur(10px);
+    }
+    .controls h2 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .control-group { margin-bottom: 20px; }
+    .control-group label {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .control-group input[type=range] {
+      width: 100%;
+      accent-color: #cb3b25;
+      cursor: pointer;
+    }
+    .value-display {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: #cb3b25;
+      font-weight: 500;
+    }
+
+    .copy-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+    .copy-hint {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .copy-btn {
+      width: 100%;
+      padding: 10px;
+      background: #cb3b25;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #b5321f; }
+    .copy-btn.copied { background: #25a244; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 18px 0;
+    }
+
+    .banner {
+      width: 100%;
+      height: 460px;
+      position: relative;
+      background-image: url('images/barbekyu_card_new.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(16,16,16,0.65);
+    }
+    .banner__text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .banner__title {
+      font-family: Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .banner__subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .mobile-frame {
+      width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 6px solid rgba(255,255,255,0.1);
+    }
+    .mobile-banner {
+      width: 100%;
+      height: 280px;
+      position: relative;
+      background-image: url('images/barbekyu_card_new.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .mobile-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(16,16,16,0.65);
+    }
+    .mobile-banner__text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 16px;
+    }
+    .mobile-banner__title {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .mobile-banner__subtitle {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .section-label {
+      padding: 10px 40px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <h2>Баннер — Барбекю</h2>
+
+    <div class="control-group">
+      <label>Вертикаль &nbsp; ↑ выше &nbsp;&nbsp; ↓ ниже</label>
+      <input type="range" id="posY" min="0" max="100" value="50" step="1">
+      <div class="value-display" id="posYVal">50%</div>
+    </div>
+
+    <div class="control-group">
+      <label>Горизонталь &nbsp; ← левее &nbsp;&nbsp; → правее</label>
+      <input type="range" id="posX" min="0" max="100" value="50" step="1">
+      <div class="value-display" id="posXVal">50% (center)</div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy-hint">
+      Скопируй и вставь в <strong>catalog.html</strong>,<br>
+      в стиль <code>.catalog-hero--bbq</code>
+    </p>
+    <div class="copy-box" id="cssOutput">background-position: center 50%;</div>
+    <button class="copy-btn" id="copyBtn" onclick="copyCSS()">Скопировать CSS</button>
+  </div>
+
+  <div class="section-label">Десктоп</div>
+  <div class="banner" id="banner">
+    <div class="banner__text">
+      <h1 class="banner__title">Барбекю комплексы</h1>
+      <p class="banner__subtitle">Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.</p>
+    </div>
+  </div>
+
+  <div style="padding: 40px;">
+    <div class="section-label" style="padding: 0 0 12px 0;">Мобильная (позиция не изменяется)</div>
+    <div class="mobile-frame">
+      <div class="mobile-banner">
+        <div class="mobile-banner__text">
+          <div class="mobile-banner__title">Барбекю</div>
+          <div class="mobile-banner__subtitle">Изразцовая облицовка ручной работы</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var banner = document.getElementById('banner');
+    var posYSlider = document.getElementById('posY');
+    var posXSlider = document.getElementById('posX');
+    var posYVal = document.getElementById('posYVal');
+    var posXVal = document.getElementById('posXVal');
+    var cssOutput = document.getElementById('cssOutput');
+
+    function xLabel(v) {
+      if (v == 50) return '50% (center)';
+      if (v == 0) return '0% (left)';
+      if (v == 100) return '100% (right)';
+      return v + '%';
+    }
+
+    function update() {
+      var y = posYSlider.value;
+      var x = posXSlider.value;
+      banner.style.backgroundPosition = x + '% ' + y + '%';
+      posYVal.textContent = y + '%';
+      posXVal.textContent = xLabel(x);
+
+      var xStr = (x == 50) ? 'center' : x + '%';
+      cssOutput.textContent = 'background-position: ' + xStr + ' ' + y + '%;';
+
+      document.getElementById('copyBtn').textContent = 'Скопировать CSS';
+      document.getElementById('copyBtn').classList.remove('copied');
+    }
+
+    function copyCSS() {
+      navigator.clipboard.writeText(cssOutput.textContent).then(function() {
+        var btn = document.getElementById('copyBtn');
+        btn.textContent = '✓ Скопировано!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Скопировать CSS';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    posYSlider.addEventListener('input', update);
+    posXSlider.addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>
