@@ -29,12 +29,20 @@
       padding: 160px 0 140px;
       text-align: center;
       position: relative;
-      background: url('images/kamin_pticy_new_2.jpg') center 86%/cover no-repeat;
+      background: url('images/banner-kaminy_web.jpg') center 50%/cover no-repeat;
       margin-bottom: -60px;
     }
+    @supports (background-image: url('x.webp')) {
+      .catalog-hero {
+        background-image: url('images/banner-kaminy_web.webp');
+      }
+      .catalog-hero--bbq {
+        background-image: url('images/banner-bbk_web.webp');
+      }
+    }
     .catalog-hero--bbq {
-      background-image: url('images/barbekyu_card_new.jpg');
-      background-position: center 23%;
+      background-image: url('images/banner-bbk_web.jpg');
+      background-position: center 43%;
     }
     .catalog-hero::before {
       content: '';
@@ -2313,7 +2321,7 @@
     });
   })();
   </script>
-  <script src="search.js"></script>
+  <script src="search.js" defer></script>
 
   <button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться вверх">
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
