@@ -244,6 +244,15 @@
       transition: border-color 0.3s ease, transform 0.3s ease;
       cursor: pointer;
     }
+    @media (min-width: 769px) {
+      .izrazcy-product {
+        display: flex;
+        flex-direction: column;
+      }
+      .izrazcy-product__actions {
+        margin-top: auto;
+      }
+    }
     .izrazcy-product:hover {
       border-color: rgba(203,59,37,0.4);
       transform: translateY(-3px);
@@ -888,11 +897,17 @@
       text-align: right;
       font-weight: 400;
     }
+    .izrazcy-modal__promo {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin: 24px 0 12px;
+      line-height: 1.45;
+    }
     .izrazcy-modal__actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 32px;
+      margin-top: 0;
     }
     .izrazcy-modal__btn {
       flex: 1;
@@ -2100,6 +2115,7 @@
             (item.p ? '<p class="izrazcy-modal__price">' + formatPrice(item.p) + ' / 1 шт.</p><p class="izrazcy-modal__price-label">Свяжитесь с нами, чтобы получить точный расчёт с доставкой</p>' : '') +
             specsHtml +
             variantsHtml +
+            '<p class="izrazcy-modal__promo">Оставьте заявку сейчас, и мы сделаем бесплатный расчет + 3D-проект</p>' +
             '<div class="izrazcy-modal__actions">' +
               '<button class="izrazcy-modal__btn izrazcy-modal__btn--request" onclick="closeIzrazcyModal(); setTimeout(function(){ document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'}); }, 300);">Оставить заявку</button>' +
               '<a href="' + waUrl + '" target="_blank" class="izrazcy-modal__btn izrazcy-modal__btn--wa">' + WA_SVG + ' WhatsApp</a>' +

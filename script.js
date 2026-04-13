@@ -97,12 +97,13 @@
     '.faq__item, .cta-section__inner,' +
     '.contact__form-side, .contact__info-side,' +
     '.showcase__gallery, .showcase__name, .showcase__bottom,' +
-    '.footer__top, .footer__bottom'
+    '.footer__top, .footer__bottom,' +
+    '.izrazcy-hero__title, .izrazcy-hero__subtitle'
   );
 
   fadeElements.forEach(function (el) {
-    // Skip cat-cards section, catalog grid, and izrazcy catalog layout — show immediately
-    if (el.closest('.cat-cards') || el.closest('.catalog-grid') || el.classList.contains('izrazcy-catalog__layout')) return;
+    // Skip cat-cards section, catalog grid, ready grid, and izrazcy catalog layout — show immediately
+    if (el.closest('.cat-cards') || el.closest('.catalog-grid') || el.classList.contains('ready-grid') || el.classList.contains('izrazcy-catalog__layout')) return;
     if (!el.classList.contains('fade-up')) {
       el.classList.add('fade-up');
     }

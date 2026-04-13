@@ -127,6 +127,20 @@
       transition: transform 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
     }
+    @media (min-width: 769px) {
+      .product-card {
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card__actions {
+        margin-top: auto;
+      }
+    }
     .product-card:hover {
       transform: translateY(-4px);
       border-color: rgba(255,255,255,0.15);
@@ -817,6 +831,13 @@
       color: rgba(255,255,255,0.4);
       font-weight: 300;
       margin-top: 2px;
+    }
+    .product-modal__promo {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      margin: 0 0 12px;
+      line-height: 1.45;
     }
     .product-modal__actions {
       display: flex;
@@ -2011,6 +2032,7 @@
               '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Стоимость под ключ (конструктив, облицовка, работа)' : 'Стоимость под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
             '</div>' : '') +
           '</div>' +
+          '<p class="product-modal__promo">Оставьте заявку сейчас, и мы сделаем бесплатный расчет + 3D-проект</p>' +
           '<div class="product-modal__actions">' +
             '<button class="product-modal__wa-btn" style="background:#cb3b25;" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
               'Оставить заявку' +
@@ -2132,7 +2154,7 @@
 
     var categoryTitles = { kaminy: 'Камины', bbq: 'Барбекю комплексы' };
     var categorySubtitles = {
-      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и надежности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений.',
+      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и долговечности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений.',
       bbq: 'Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.<br> Продуманная эргономика, широкий выбор дизайнерских решений, фасадная технология.'
     };
     var heroTitle = document.querySelector('.catalog-hero__title');
@@ -2163,8 +2185,29 @@
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
         var cat = this.getAttribute('data-category');
+        if (!cat || validCategories.indexOf(cat) === -1) return;
+
+        // Re-trigger fade-up animation on hero and tabs
+        var animTargets = [
+          heroTitle,
+          heroSubtitle,
+          document.getElementById('catalogTabs')
+        ];
+        animTargets.forEach(function(el) {
+          if (el && el.classList.contains('fade-up')) {
+            el.classList.remove('visible');
+            void el.offsetWidth;
+          }
+        });
+
         setActiveTab(cat);
         history.replaceState(null, '', 'catalog.html?cat=' + cat);
+
+        setTimeout(function() {
+          animTargets.forEach(function(el) {
+            if (el && el.classList.contains('fade-up')) el.classList.add('visible');
+          });
+        }, 10);
       });
     });
 
