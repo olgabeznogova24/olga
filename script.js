@@ -102,8 +102,8 @@
   );
 
   fadeElements.forEach(function (el) {
-    // Skip cat-cards section, catalog grid, ready grid, and izrazcy catalog layout — show immediately
-    if (el.closest('.cat-cards') || el.closest('.catalog-grid') || el.classList.contains('ready-grid') || el.classList.contains('izrazcy-catalog__layout')) return;
+    // Skip cat-cards section, catalog grid, ready grid, izrazcy catalog layout, and about-info — show immediately
+    if (el.closest('.cat-cards') || el.closest('.catalog-grid') || el.classList.contains('ready-grid') || el.classList.contains('izrazcy-catalog__layout') || el.closest('.about-info')) return;
     if (!el.classList.contains('fade-up')) {
       el.classList.add('fade-up');
     }

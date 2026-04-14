@@ -29,7 +29,7 @@
       padding: 160px 0 140px;
       text-align: center;
       position: relative;
-      background: url('images/banner-kaminy_web.jpg') center 50%/cover no-repeat;
+      background: url('images/banner-kaminy_web.jpg') center 20%/cover no-repeat;
       margin-bottom: -60px;
     }
     @supports (background-image: url('x.webp')) {
@@ -42,7 +42,7 @@
     }
     .catalog-hero--bbq {
       background-image: url('images/banner-bbk_web.jpg');
-      background-position: center 43%;
+      background-position: center 20%;
     }
     .catalog-hero::before {
       content: '';
@@ -1108,8 +1108,8 @@
           <div class="footer__col">
             <h4 class="footer__col-title">Каталог</h4>
             <ul class="footer__col-list">
-              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="izrazcy.html">Изразцы</a></li>
+              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
               <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
@@ -2042,11 +2042,11 @@
           '<div class="product-modal__prices">' +
             '<div>' +
               '<div class="product-modal__price">' + p.price + ' &#8376;</div>' +
-              '<div class="product-modal__price-label">Стоимость облицовки</div>' +
+              '<div class="product-modal__price-label">Облицовка</div>' +
             '</div>' +
             (p.priceTurnkey ? '<div>' +
               '<div class="product-modal__price">' + p.priceTurnkey + ' &#8376;</div>' +
-              '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Стоимость под ключ (конструктив, облицовка, работа)' : 'Стоимость под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
+              '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Под ключ (конструктив, облицовка, работа)' : 'Под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
             '</div>' : '') +
           '</div>' +
           '<div class="product-modal__actions">' +
