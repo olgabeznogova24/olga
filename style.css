@@ -2762,7 +2762,7 @@ ul, ol {
     min-height: 0;
     max-height: none;
     padding: 0;
-    margin-top: 0;
+    margin-top: calc(var(--header-h) / 2);
     overflow: visible;
     display: flex;
     flex-direction: column;
@@ -2780,7 +2780,8 @@ ul, ol {
 
   .hero__bg img {
     object-position: center 70%;
-    transform: none;
+    transform: scale(1.05);
+    transform-origin: center 0%;
   }
 
   .hero__overlay {
@@ -4572,3 +4573,12 @@ ul, ol {
     height: 18px;
   }
 }
+
+/* ===== PROMO LINE BREAKS ===== */
+.promo-br-mobile { display: none; }
+.promo-br-desktop { display: inline; }
+@media (max-width: 768px) {
+  .promo-br-mobile { display: inline; }
+  .promo-br-desktop { display: none; }
+}
+

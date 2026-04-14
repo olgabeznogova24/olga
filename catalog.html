@@ -68,6 +68,7 @@
       color: rgba(255,255,255,0.6);
       font-weight: 300;
       margin: 0;
+      text-wrap: balance;
     }
     @media (max-width: 768px) {
       .catalog-hero__subtitle br { display: none; }
@@ -75,7 +76,7 @@
 
     /* ===== CATALOG FILTER TABS ===== */
     .catalog-filters {
-      padding: 80px 0 48px;
+      padding: 108px 0 48px;
     }
     .catalog-filters__tabs {
       display: flex;
@@ -389,8 +390,7 @@
     /* ===== MODAL REVIEWS SECTION ===== */
     .product-modal__reviews {
       padding: 40px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
+      margin-top: 8px;
     }
     .product-modal__reviews h3 {
       font-family: 'TT Ramillas Trl', serif;
@@ -463,6 +463,12 @@
     @media (max-width: 768px) {
       .product-modal__review-item {
         width: 100%;
+      }
+      .product-modal__reviews h3 {
+        text-align: center;
+      }
+      .product-modal__reviews-grid {
+        justify-content: center;
       }
     }
 
@@ -844,8 +850,9 @@
       font-size: 0.85rem;
       font-weight: 300;
       color: rgba(255,255,255,0.55);
-      margin: 0 0 12px;
+      margin: 0;
       line-height: 1.45;
+      text-align: center;
     }
     .product-modal__actions {
       display: flex;
@@ -1102,7 +1109,9 @@
             <h4 class="footer__col-title">Каталог</h4>
             <ul class="footer__col-list">
               <li><a href="catalog.html?cat=kaminy">Камины</a></li>
+              <li><a href="izrazcy.html">Изразцы</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+              <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
           </div>
           <div class="footer__col">
@@ -2040,7 +2049,6 @@
               '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Стоимость под ключ (конструктив, облицовка, работа)' : 'Стоимость под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
             '</div>' : '') +
           '</div>' +
-          '<p class="product-modal__promo">Оставьте заявку сейчас, и мы сделаем бесплатный расчет + 3D-проект</p>' +
           '<div class="product-modal__actions">' +
             '<button class="product-modal__wa-btn" style="background:#cb3b25;" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
               'Оставить заявку' +
@@ -2049,6 +2057,7 @@
               WA_SVG + ' WhatsApp' +
             '</a>' +
           '</div>' +
+          '<p class="product-modal__promo">Оставьте заявку сейчас, и мы сделаем <br class="promo-br-mobile">бесплатный <br class="promo-br-desktop">расчет + 3D-проект</p>' +
         '</div>' +
         (function() {
           var rev = getReview(p.name);
@@ -2162,8 +2171,8 @@
 
     var categoryTitles = { kaminy: 'Камины', bbq: 'Барбекю комплексы' };
     var categorySubtitles = {
-      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и долговечности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений.',
-      bbq: 'Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.<br> Продуманная эргономика, широкий выбор дизайнерских решений, фасадная технология.'
+      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и долговечности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений',
+      bbq: 'Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.<br> Продуманная эргономика, широкий выбор дизайнерских решений, фасадная технология'
     };
     var heroTitle = document.querySelector('.catalog-hero__title');
     var heroSubtitle = document.querySelector('.catalog-hero__subtitle');

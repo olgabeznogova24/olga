@@ -65,6 +65,7 @@
       font-weight: 300;
       color: rgba(255,255,255,0.6);
       margin: 0;
+      text-wrap: balance;
     }
     @media (max-width: 768px) {
       .izrazcy-hero__subtitle br { display: none; }
@@ -143,7 +144,10 @@
       font-weight: 600;
       color: rgba(255,255,255,0.7);
       margin-bottom: 10px;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -165,11 +169,15 @@
       transition: all 0.3s ease;
       white-space: nowrap;
     }
-    .izrazcy-filters__tag:hover,
+    .izrazcy-filters__tag:hover {
+      color: #fff;
+      border-color: rgba(203,59,37,0.5);
+      background: rgba(203,59,37,0.08);
+    }
     .izrazcy-filters__tag--active {
       color: #fff;
       border-color: #cb3b25;
-      background: rgba(203,59,37,0.15);
+      background: rgba(203,59,37,0.25);
     }
     .izrazcy-filters__extra {
       display: none;
@@ -213,13 +221,16 @@
       background: #cb3b25;
       border-radius: 100px;
       padding: 3px 10px;
-      margin-left: 8px;
-      vertical-align: middle;
+      text-transform: none;
+      letter-spacing: 0;
+      max-height: 0;
+      overflow: hidden;
       opacity: 0;
       transform: scale(0.8);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
     }
     .izrazcy-filters__badge--visible {
+      max-height: 30px;
       opacity: 1;
       transform: scale(1);
     }
@@ -391,6 +402,10 @@
         pointer-events: none;
         background: linear-gradient(to right, transparent, #101010 55%);
         padding: 4px 6px 4px 18px;
+      }
+      .izrazcy-filters__group[data-filter="type"]::after,
+      .izrazcy-filters__group[data-filter="surface"]::after {
+        display: none;
       }
       .izrazcy-filters__label {
         font-size: 0.75rem;
@@ -609,7 +624,6 @@
     .izrazcy-modal__reviews {
       width: 100%;
       padding: 40px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
       margin-top: 8px;
     }
     .izrazcy-modal__reviews h3 {
@@ -774,7 +788,6 @@
     .izrazcy-modal__related--variants {
       margin-top: 32px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.07);
     }
     .izrazcy-modal__related-title {
       font-family: 'Inter', sans-serif;
@@ -898,10 +911,11 @@
       font-weight: 400;
     }
     .izrazcy-modal__promo {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      margin: 24px 0 12px;
+      font-size: 0.95rem;
+      color: #fff;
+      margin: 16px 0;
       line-height: 1.45;
+      text-align: center;
     }
     .izrazcy-modal__actions {
       display: flex;
@@ -1258,7 +1272,7 @@
 
     /* ===== CATALOG FILTER TABS (shared with catalog.html) ===== */
     .catalog-filters--izrazcy {
-      padding: 80px 0 48px;
+      padding: 108px 0 48px;
     }
     .catalog-filters__tabs {
       display: flex;
@@ -1442,7 +1456,7 @@
         <aside class="izrazcy-sidebar" id="izrazcySidebar">
           <!-- Основные фильтры -->
           <div class="izrazcy-filters__group" data-filter="style">
-            <span class="izrazcy-filters__label">Стиль <span class="izrazcy-filters__badge"></span></span>
+            <span class="izrazcy-filters__label"><span class="izrazcy-filters__badge"></span>Стиль</span>
             <div class="izrazcy-filters__tags">
               <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
               <span class="izrazcy-filters__tag">Арт Нуво</span>
@@ -1458,7 +1472,7 @@
           </div>
 
           <div class="izrazcy-filters__group" data-filter="color">
-            <span class="izrazcy-filters__label">Цвет <span class="izrazcy-filters__badge"></span></span>
+            <span class="izrazcy-filters__label"><span class="izrazcy-filters__badge"></span>Цвет</span>
             <div class="izrazcy-filters__tags">
               <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
               <span class="izrazcy-filters__tag">Белые/бежевые</span>
@@ -1474,7 +1488,7 @@
           </div>
 
           <div class="izrazcy-filters__group" data-filter="size">
-            <span class="izrazcy-filters__label">Типоразмер <span class="izrazcy-filters__badge"></span></span>
+            <span class="izrazcy-filters__label"><span class="izrazcy-filters__badge"></span>Типоразмер</span>
             <div class="izrazcy-filters__tags">
               <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
               <span class="izrazcy-filters__tag">150x150</span>
@@ -1498,7 +1512,7 @@
           <!-- Скрытые фильтры -->
           <div class="izrazcy-filters__extra" id="extraFilters">
             <div class="izrazcy-filters__group" data-filter="type">
-              <span class="izrazcy-filters__label">Тип <span class="izrazcy-filters__badge"></span></span>
+              <span class="izrazcy-filters__label"><span class="izrazcy-filters__badge"></span>Тип</span>
               <div class="izrazcy-filters__tags">
                 <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
                 <span class="izrazcy-filters__tag">С росписью</span>
@@ -1507,7 +1521,7 @@
             </div>
 
             <div class="izrazcy-filters__group" data-filter="surface">
-              <span class="izrazcy-filters__label">Поверхность <span class="izrazcy-filters__badge"></span></span>
+              <span class="izrazcy-filters__label"><span class="izrazcy-filters__badge"></span>Поверхность</span>
               <div class="izrazcy-filters__tags">
                 <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
                 <span class="izrazcy-filters__tag">Гладкие</span>
@@ -1567,6 +1581,7 @@
               <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="izrazcy.html">Изразцы</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+              <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
           </div>
           <div class="footer__col">
@@ -1632,16 +1647,25 @@
 
     function updateBadges() {
       var groups = document.querySelectorAll('[data-filter]');
+      // Проверяем, активен ли хоть один фильтр
+      var anyActive = false;
       for (var i = 0; i < groups.length; i++) {
-        var badge = groups[i].querySelector('.izrazcy-filters__badge');
-        if (!badge) continue;
-        var val = getActiveFilter(groups[i]);
-        if (val) {
-          badge.textContent = filtered.length;
-          badge.classList.add('izrazcy-filters__badge--visible');
+        if (getActiveFilter(groups[i])) { anyActive = true; break; }
+      }
+      // Бейдж показываем только над первым фильтром
+      var firstBadge = groups.length ? groups[0].querySelector('.izrazcy-filters__badge') : null;
+      if (firstBadge) {
+        if (anyActive) {
+          firstBadge.textContent = 'Количество: ' + filtered.length + ' шт.';
+          firstBadge.classList.add('izrazcy-filters__badge--visible');
         } else {
-          badge.classList.remove('izrazcy-filters__badge--visible');
+          firstBadge.classList.remove('izrazcy-filters__badge--visible');
         }
+      }
+      // Остальные бейджи всегда скрыты
+      for (var j = 1; j < groups.length; j++) {
+        var badge = groups[j].querySelector('.izrazcy-filters__badge');
+        if (badge) badge.classList.remove('izrazcy-filters__badge--visible');
       }
     }
 
@@ -1673,7 +1697,7 @@
             (itemCollection ? '<p class="izrazcy-product__collection">Коллекция ' + itemCollection + '</p>' : '') +
             '<h3 class="izrazcy-product__name">' + displayName + '</h3>' +
             (item.a ? '<p class="izrazcy-product__art">Арт. ' + item.a + '</p>' : '') +
-            (item.p ? '<p class="izrazcy-product__price">' + formatPrice(item.p) + ' / 1 шт.</p>' : '') +
+            (item.p ? '<p class="izrazcy-product__price">' + formatPrice(item.p) + ' / 1 шт</p>' : '') +
           '</div>' +
           '<div class="izrazcy-product__actions">' +
             '<button class="izrazcy-product__actions-desc">' +
@@ -1737,12 +1761,13 @@
 
     function getActiveFilter(group) {
       var tags = group.querySelectorAll('.izrazcy-filters__tag');
+      var values = [];
       for (var i = 0; i < tags.length; i++) {
         if (tags[i].classList.contains('izrazcy-filters__tag--active') && tags[i].textContent.trim() !== 'Все') {
-          return tags[i].textContent.trim().toLowerCase();
+          values.push(tags[i].textContent.trim().toLowerCase());
         }
       }
-      return null;
+      return values.length ? values : null;
     }
 
     var STYLE_MAP = {
@@ -1876,13 +1901,17 @@
       var groups = document.querySelectorAll('[data-filter]');
       var filters = [];
       for (var i = 0; i < groups.length; i++) {
-        var val = getActiveFilter(groups[i]);
-        if (val) filters.push({ name: groups[i].getAttribute('data-filter'), value: val });
+        var vals = getActiveFilter(groups[i]);
+        if (vals) filters.push({ name: groups[i].getAttribute('data-filter'), values: vals });
       }
 
       filtered = allData.filter(function(item) {
         for (var j = 0; j < filters.length; j++) {
-          if (!matchesFilter(item, filters[j].name, filters[j].value)) return false;
+          var matched = false;
+          for (var k = 0; k < filters[j].values.length; k++) {
+            if (matchesFilter(item, filters[j].name, filters[j].values[k])) { matched = true; break; }
+          }
+          if (!matched) return false;
         }
         return true;
       });
@@ -1898,10 +1927,21 @@
       group.addEventListener('click', function(e) {
         var tag = e.target.closest('.izrazcy-filters__tag');
         if (!tag) return;
-        group.querySelectorAll('.izrazcy-filters__tag').forEach(function(t) {
-          t.classList.remove('izrazcy-filters__tag--active');
-        });
-        tag.classList.add('izrazcy-filters__tag--active');
+        var allTag = group.querySelector('.izrazcy-filters__tag');
+        if (tag.textContent.trim() === 'Все') {
+          // Клик на «Все» — снять все остальные
+          group.querySelectorAll('.izrazcy-filters__tag').forEach(function(t) {
+            t.classList.remove('izrazcy-filters__tag--active');
+          });
+          tag.classList.add('izrazcy-filters__tag--active');
+        } else {
+          // Клик на конкретный тег — переключить его
+          allTag.classList.remove('izrazcy-filters__tag--active');
+          tag.classList.toggle('izrazcy-filters__tag--active');
+          // Если ничего не выбрано — вернуть «Все»
+          var anyActive = group.querySelector('.izrazcy-filters__tag--active');
+          if (!anyActive) allTag.classList.add('izrazcy-filters__tag--active');
+        }
         applyFilters();
       });
     });
@@ -2112,10 +2152,10 @@
             (collection ? '<span class="izrazcy-modal__tag">Коллекция ' + collection + '</span>' : '') +
             '<h2 class="izrazcy-modal__title">' + modalDisplayName + '</h2>' +
             (item.a ? '<p class="izrazcy-modal__art">Арт. ' + item.a + '</p>' : '') +
-            (item.p ? '<p class="izrazcy-modal__price">' + formatPrice(item.p) + ' / 1 шт.</p><p class="izrazcy-modal__price-label">Свяжитесь с нами, чтобы получить точный расчёт с доставкой</p>' : '') +
+            (item.p ? '<p class="izrazcy-modal__price">' + formatPrice(item.p) + ' / 1 шт</p><p class="izrazcy-modal__price-label">Свяжитесь с нами, для точного расчёта с доставкой</p>' : '') +
             specsHtml +
             variantsHtml +
-            '<p class="izrazcy-modal__promo">Оставьте заявку сейчас, и мы сделаем бесплатный расчет + 3D-проект</p>' +
+            '<p class="izrazcy-modal__promo">Оставьте заявку сейчас, и мы сделаем <br class="promo-br-mobile">бесплатный <br class="promo-br-desktop">расчет + 3D-проект</p>' +
             '<div class="izrazcy-modal__actions">' +
               '<button class="izrazcy-modal__btn izrazcy-modal__btn--request" onclick="closeIzrazcyModal(); setTimeout(function(){ document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'}); }, 300);">Оставить заявку</button>' +
               '<a href="' + waUrl + '" target="_blank" class="izrazcy-modal__btn izrazcy-modal__btn--wa">' + WA_SVG + ' WhatsApp</a>' +
