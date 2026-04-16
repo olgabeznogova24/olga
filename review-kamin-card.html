@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Позиция фото — Камины (карточка)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a1a; font-family: 'Inter', Arial, sans-serif; color: #fff; padding-bottom: 60px; }
+
+    /* ===== ПАНЕЛЬ УПРАВЛЕНИЯ ===== */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(20,20,20,0.93);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 24px;
+      width: 290px;
+      backdrop-filter: blur(10px);
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+    .controls h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .controls-section {
+      margin-bottom: 0;
+    }
+    .controls-section-title {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .control-group { margin-bottom: 16px; }
+    .control-group label {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .control-group input[type=range] {
+      width: 100%;
+      accent-color: #cb3b25;
+      cursor: pointer;
+    }
+    .value-display {
+      margin-top: 5px;
+      font-size: 0.82rem;
+      color: #cb3b25;
+      font-weight: 600;
+    }
+    .copy-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      word-break: break-all;
+      line-height: 1.5;
+      font-family: monospace;
+      width: 100%;
+      resize: none;
+      cursor: text;
+    }
+    .copy-hint {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .copy-btn {
+      width: 100%;
+      padding: 9px;
+      background: #cb3b25;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #b5321f; }
+    .copy-btn.copied { background: #25a244; }
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 18px 0;
+    }
+
+    /* ===== СЕКЦИИ ПРЕВЬЮ ===== */
+    .section-label {
+      padding: 32px 40px 10px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== ДЕСКТОП КАРТОЧКА ===== */
+    .desktop-wrapper {
+      padding: 0 40px;
+      max-width: 660px;
+    }
+    .cat-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 280px;
+      display: block;
+    }
+    .cat-card img { display: none; }
+    .cat-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%);
+    }
+    .cat-card__title {
+      position: absolute;
+      bottom: 68px;
+      left: 20px;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      color: #fff;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .cat-card__btn {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      padding: 8px 16px;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 8px;
+      font-size: 13px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ===== МОБИЛЬНАЯ КАРТОЧКА ===== */
+    .mobile-wrapper {
+      padding: 0 40px;
+    }
+    .mobile-frame {
+      width: 360px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 6px solid rgba(255,255,255,0.1);
+    }
+    .cat-card--mobile {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      display: block;
+    }
+    .cat-card--mobile img { display: none; }
+    .cat-card--mobile .cat-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%);
+    }
+    .cat-card--mobile .cat-card__title {
+      position: absolute;
+      bottom: 44px;
+      left: 16px;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 400;
+    }
+    .cat-card--mobile .cat-card__btn {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      padding: 6px 14px;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      border-radius: 8px;
+      font-size: 12px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ПАНЕЛЬ УПРАВЛЕНИЯ ===== -->
+  <div class="controls">
+    <h2>Камины — позиция фото</h2>
+
+    <!-- Десктоп -->
+    <div class="controls-section">
+      <div class="controls-section-title">Десктоп</div>
+
+      <div class="control-group">
+        <label>Вертикаль &nbsp; ↑ выше &nbsp;&nbsp; ↓ ниже</label>
+        <input type="range" id="deskY" min="0" max="100" value="40" step="1">
+        <div class="value-display" id="deskYVal">40%</div>
+      </div>
+
+      <div class="control-group">
+        <label>Горизонталь &nbsp; ← левее &nbsp;&nbsp; → правее</label>
+        <input type="range" id="deskX" min="0" max="100" value="50" step="1">
+        <div class="value-display" id="deskXVal">50%</div>
+      </div>
+
+      <div class="control-group">
+        <label>Масштаб &nbsp; (увеличить, чтобы двигать влево/вправо)</label>
+        <input type="range" id="deskZ" min="100" max="200" value="130" step="1">
+        <div class="value-display" id="deskZVal">130%</div>
+      </div>
+
+      <p class="copy-hint">Вставить в <strong>style.css</strong> →<br><code>.cat-card--kaminy</code> внутри <code>@media (min-width: 481px)</code></p>
+      <textarea class="copy-box" id="deskCssOutput" rows="2" readonly>background-position: 50% 40%;</textarea>
+      <button class="copy-btn" id="deskCopyBtn" onclick="copyCSS('desk')">Скопировать CSS</button>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Мобильная -->
+    <div class="controls-section">
+      <div class="controls-section-title">Мобильная</div>
+
+      <div class="control-group">
+        <label>Вертикаль &nbsp; ↑ выше &nbsp;&nbsp; ↓ ниже</label>
+        <input type="range" id="mobY" min="0" max="100" value="40" step="1">
+        <div class="value-display" id="mobYVal">40%</div>
+      </div>
+
+      <div class="control-group">
+        <label>Горизонталь &nbsp; ← левее &nbsp;&nbsp; → правее</label>
+        <input type="range" id="mobX" min="0" max="100" value="50" step="1">
+        <div class="value-display" id="mobXVal">50%</div>
+      </div>
+
+      <div class="control-group">
+        <label>Масштаб &nbsp; (увеличить, чтобы двигать влево/вправо)</label>
+        <input type="range" id="mobZ" min="100" max="200" value="130" step="1">
+        <div class="value-display" id="mobZVal">130%</div>
+      </div>
+
+      <p class="copy-hint">Вставить в <strong>style.css</strong> →<br><code>.cat-card--kaminy</code> внутри <code>@media (max-width: 480px)</code></p>
+      <textarea class="copy-box" id="mobCssOutput" rows="2" readonly>background-position: 50% 40%;</textarea>
+      <button class="copy-btn" id="mobCopyBtn" onclick="copyCSS('mob')">Скопировать CSS</button>
+    </div>
+  </div>
+
+  <!-- ===== ДЕСКТОП ПРЕВЬЮ ===== -->
+  <div class="section-label">Десктоп — карточка (~600px широкая)</div>
+  <div class="desktop-wrapper">
+    <div class="cat-card" id="deskCard">
+      <div class="cat-card__overlay"></div>
+      <span class="cat-card__title">Камины</span>
+      <span class="cat-card__btn">Смотреть каталог</span>
+    </div>
+  </div>
+
+  <!-- ===== МОБИЛЬНЫЙ ПРЕВЬЮ ===== -->
+  <div class="section-label">Мобильная — карточка (360px)</div>
+  <div class="mobile-wrapper">
+    <div class="mobile-frame">
+      <div class="cat-card--mobile" id="mobCard">
+        <div class="cat-card__overlay"></div>
+        <span class="cat-card__title">Камины</span>
+        <span class="cat-card__btn">Смотреть каталог</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var deskCard = document.getElementById('deskCard');
+    var mobCard  = document.getElementById('mobCard');
+
+    deskCard.style.backgroundImage = "url('images/kamin_card.jpg')";
+    mobCard.style.backgroundImage  = "url('images/kamin_card.jpg')";
+
+    function update(type) {
+      var y    = document.getElementById(type + 'Y').value;
+      var x    = document.getElementById(type + 'X').value;
+      var z    = document.getElementById(type + 'Z').value;
+      var card = type === 'desk' ? deskCard : mobCard;
+      card.style.backgroundSize     = z + '% auto';
+      card.style.backgroundPosition = x + '% ' + y + '%';
+      document.getElementById(type + 'YVal').textContent = y + '%';
+      document.getElementById(type + 'XVal').textContent = x + '%';
+      document.getElementById(type + 'ZVal').textContent = z + '%';
+      document.getElementById(type + 'CssOutput').textContent =
+        'background-size: ' + z + '% auto;\nbackground-position: ' + x + '% ' + y + '%;';
+      document.getElementById(type + 'CopyBtn').textContent = 'Скопировать CSS';
+      document.getElementById(type + 'CopyBtn').classList.remove('copied');
+    }
+
+    function copyCSS(type) {
+      var text = document.getElementById(type + 'CssOutput').textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById(type + 'CopyBtn');
+        btn.textContent = '✓ Скопировано!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Скопировать CSS';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    ['deskY','deskX','deskZ','mobY','mobX','mobZ'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', function() {
+        update(id.startsWith('desk') ? 'desk' : 'mob');
+      });
+    });
+
+    update('desk');
+    update('mob');
+  </script>
+</body>
+</html>

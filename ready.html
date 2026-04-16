@@ -1396,10 +1396,10 @@
         var tgText = '\uD83D\uDCCB Новая заявка с сайта!\n\uD83D\uDC64 Имя: ' + n + '\n\uD83D\uDCDE Телефон: ' + p + '\n\uD83D\uDED2 Товар: ' + productLabel;
         if (m) tgText += '\n\uD83D\uDCAC Комментарий: ' + m;
         tgText += '\n\uD83D\uDCC4 Страница: Печи-камины из наличия';
-        fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
+        fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: '-1003871745435', text: tgText })
+          body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: tgText })
         });
         body.innerHTML =
           '<div class="request-modal__success">' +
@@ -1618,9 +1618,9 @@
         var tgText = '\uD83D\uDCCB Новая заявка!\n\uD83D\uDC64 ' + n + '\n\uD83D\uDCDE ' + ph + '\n\uD83D\uDED2 ' + productLabel;
         if (m) tgText += '\n\uD83D\uDCAC ' + m;
         tgText += '\n\uD83D\uDCC4 Страница: Печи-камины из наличия';
-        fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
+        fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
           method: 'POST', headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({chat_id:'-1003871745435', text: tgText})
+          body: JSON.stringify({chat_id:'YOUR_CHAT_ID', text: tgText})
         });
         body.innerHTML = '<div class="request-modal__success"><span class="request-modal__success-icon">&#10003;</span><h3 class="request-modal__title">Заявка отправлена!</h3><p class="request-modal__success-text">Спасибо! Мы свяжемся с вами в ближайшее время.</p></div>';
       });
