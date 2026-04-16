@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Позиция баннера — Главная (мобильная)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a1a; font-family: 'Inter', Arial, sans-serif; color: #fff; }
+
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 24px;
+      width: 290px;
+      backdrop-filter: blur(10px);
+    }
+    .controls h2 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .controls .note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .control-group { margin-bottom: 20px; }
+    .control-group label {
+      display: block;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .control-group input[type=range] {
+      width: 100%;
+      accent-color: #cb3b25;
+      cursor: pointer;
+    }
+    .value-display {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: #cb3b25;
+      font-weight: 500;
+    }
+
+    .copy-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+      line-height: 1.8;
+      font-family: monospace;
+    }
+    .copy-hint {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .copy-btn {
+      width: 100%;
+      padding: 10px;
+      background: #cb3b25;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #b5321f; }
+    .copy-btn.copied { background: #25a244; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 18px 0;
+    }
+
+    /* Desktop preview */
+    .banner {
+      width: 100%;
+      height: 460px;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    .banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(16,16,16,0.55);
+    }
+    .banner__text {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .banner__title {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .banner__subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    /* Mobile preview */
+    .mobile-frame {
+      width: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 6px solid rgba(255,255,255,0.1);
+    }
+    .mobile-banner {
+      width: 100%;
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mobile-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transform: scale(1.3);
+      transform-origin: center 50%;
+      transition: transform-origin 0.1s;
+    }
+    .mobile-banner__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(16,16,16,0.3) 60%, rgba(16,16,16,0.85) 100%);
+    }
+    .mobile-banner__text {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 16px;
+    }
+    .mobile-banner__title {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .mobile-banner__subtitle {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .section-label {
+      padding: 10px 40px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls -->
+  <div class="controls">
+    <h2>Баннер — Главная</h2>
+    <p class="note">
+      Фото горизонтальное (768×600) — object-position не работает.<br>
+      Используется масштаб + смещение через transform.
+    </p>
+
+    <div class="control-group">
+      <label>Масштаб (приближение)</label>
+      <input type="range" id="scale" min="100" max="200" value="130" step="1">
+      <div class="value-display" id="scaleVal">1.3</div>
+    </div>
+
+    <div class="control-group">
+      <label>Вертикаль &nbsp; ↑ выше &nbsp;&nbsp; ↓ ниже</label>
+      <input type="range" id="posY" min="0" max="100" value="50" step="1">
+      <div class="value-display" id="posYVal">50%</div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy-hint">
+      Скопируй и вставь в <strong>style.css</strong>,<br>
+      в блок <code>.hero__bg img</code> внутри @media (строка ~2781),<br>
+      заменив строку <code>transform: none;</code>
+    </p>
+    <div class="copy-box" id="cssOutput">
+      transform: scale(1.3);<br>
+      transform-origin: center 50%;
+    </div>
+    <button class="copy-btn" id="copyBtn" onclick="copyCSS()">Скопировать CSS</button>
+  </div>
+
+  <!-- Desktop preview -->
+  <div class="section-label">Десктоп (не изменяется)</div>
+  <div class="banner">
+    <img src="images/hero_desktop.jpg" alt="Баннер десктоп">
+    <div class="banner__overlay"></div>
+    <div class="banner__text">
+      <h1 class="banner__title">Премиальные камины, барбекю и облицовка</h1>
+      <p class="banner__subtitle">Бесплатный 3D-проект и смета за 2–3 дня</p>
+    </div>
+  </div>
+
+  <!-- Mobile preview -->
+  <div style="padding: 40px;">
+    <div class="section-label" style="padding: 0 0 12px 0;">Мобильная (двигай ползунки)</div>
+    <div class="mobile-frame">
+      <div class="mobile-banner">
+        <img id="mobileImg" src="images/hero_main.jpg" alt="Баннер мобильный">
+        <div class="mobile-banner__overlay"></div>
+        <div class="mobile-banner__text">
+          <div class="mobile-banner__title">Камины, барбекю и облицовка</div>
+          <div class="mobile-banner__subtitle">Бесплатный 3D-проект и смета за 2–3 дня</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var mobileImg = document.getElementById('mobileImg');
+    var scaleSlider = document.getElementById('scale');
+    var posYSlider = document.getElementById('posY');
+    var scaleVal = document.getElementById('scaleVal');
+    var posYVal = document.getElementById('posYVal');
+    var cssOutput = document.getElementById('cssOutput');
+
+    function update() {
+      var s = (scaleSlider.value / 100).toFixed(2);
+      var y = posYSlider.value;
+
+      mobileImg.style.transform = 'scale(' + s + ')';
+      mobileImg.style.transformOrigin = 'center ' + y + '%';
+
+      scaleVal.textContent = s;
+      posYVal.textContent = y + '%';
+
+      cssOutput.innerHTML =
+        'transform: scale(' + s + ');<br>' +
+        'transform-origin: center ' + y + '%;';
+
+      document.getElementById('copyBtn').textContent = 'Скопировать CSS';
+      document.getElementById('copyBtn').classList.remove('copied');
+    }
+
+    function copyCSS() {
+      var text = 'transform: scale(' + (scaleSlider.value / 100).toFixed(2) + ');\ntransform-origin: center ' + posYSlider.value + '%;';
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById('copyBtn');
+        btn.textContent = '✓ Скопировано!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Скопировать CSS';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    scaleSlider.addEventListener('input', update);
+    posYSlider.addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>

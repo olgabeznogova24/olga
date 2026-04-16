@@ -19,7 +19,7 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="images/hero_desktop.webp" media="(min-width: 769px)">
+  <link rel="preload" as="image" type="image/webp" href="images/hero_desktop@2x.webp" imagesrcset="images/hero_desktop@2x.webp 2x, images/hero_desktop.webp 1x" media="(min-width: 769px)">
   <link rel="preload" as="image" type="image/webp" href="images/hero_main@2x.webp" imagesrcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" media="(max-width: 768px)">
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Ramillas/TT_Ramillas_Light.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Commons_Pro/TT_Commons_Pro_Regular.woff2" crossorigin>
@@ -145,8 +145,8 @@
   <section class="hero" id="hero">
     <div class="hero__bg">
       <picture>
-        <source media="(min-width: 769px)" srcset="images/hero_desktop.webp" type="image/webp">
-        <source media="(min-width: 769px)" srcset="images/hero_desktop.jpg">
+        <source media="(min-width: 769px)" srcset="images/hero_desktop@2x.webp 2x, images/hero_desktop.webp 1x" type="image/webp">
+        <source media="(min-width: 769px)" srcset="images/hero_desktop@2x.jpg 2x, images/hero_desktop.jpg 1x">
         <source srcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" type="image/webp">
         <source srcset="images/hero_main@2x.jpg 2x, images/hero_main.jpg 1x">
         <img src="images/hero_main.jpg" alt="Изразцовый камин с огнём в интерьере" loading="eager" fetchpriority="high" decoding="async">
@@ -154,7 +154,7 @@
     </div>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
-      <h1 class="hero__title">Премиальные камины, барбекю и&nbsp;облицовка</h1>
+      <h1 class="hero__title">Премиальные камины, печи, барбекю комплексы и&nbsp;облицовки</h1>
       <p class="hero__offer">Бесплатный 3D-проект и смета за 2–3 дня</p>
       <div class="hero__trust">
         <div class="hero__trust-item">
@@ -168,8 +168,8 @@
         </div>
         <div class="hero__trust-divider"></div>
         <div class="hero__trust-item">
-          <span class="hero__trust-num">&gt;40</span>
-          <span class="hero__trust-text">коллекций<br>изразцов</span>
+          <span class="hero__trust-num">&gt;100</span>
+          <span class="hero__trust-text">сотрудников<br>в компании</span>
         </div>
       </div>
       <div class="hero__buttons">
@@ -287,9 +287,9 @@
     <div class="showcase__item">
       <div class="showcase__gallery">
         <div class="showcase__track">
-          <div class="showcase__slide"><picture><source srcset="images/bristol_2.webp" type="image/webp"><img src="images/bristol_2.jpg" alt="Камин Бристоль — общий вид" loading="lazy" decoding="async"></picture></div>
           <div class="showcase__slide"><picture><source srcset="images/bristol_3.webp" type="image/webp"><img src="images/bristol_3.jpg" alt="Камин Бристоль — вид сбоку" loading="lazy" decoding="async"></picture></div>
-          <div class="showcase__slide"><picture><source srcset="images/bristol_1.webp" type="image/webp"><img src="images/bristol_1.jpg" alt="Камин Бристоль — крупный план с огнём" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><img src="images/IMG_3994-HDR.jpg" alt="Камин Бристоль — общий вид в интерьере" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><source srcset="images/bristol_2.webp" type="image/webp"><img src="images/bristol_2.jpg" alt="Камин Бристоль — общий вид" loading="lazy" decoding="async"></picture></div>
           <div class="showcase__slide"><picture><source srcset="images/bristol_4.webp" type="image/webp"><img src="images/bristol_4.jpg" alt="Камин Бристоль — детали рельефа" loading="lazy" decoding="async"></picture></div>
           <div class="showcase__slide"><picture><source srcset="images/bristol_5.webp" type="image/webp"><img src="images/bristol_5.jpg" alt="Камин Бристоль — в интерьере" loading="lazy" decoding="async"></picture></div>
         </div>
@@ -302,7 +302,7 @@
         <div class="showcase__dots"></div>
       </div>
       <div class="showcase__content">
-        <p class="showcase__name">Камин Бристоль</p>
+        <p class="showcase__name">Камин Бристоль в цвете Чёрная ночь</p>
         <p class="showcase__desc">Тёмная глазурь, рельефные изразцы, живой огонь</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
@@ -342,7 +342,7 @@
         <div class="showcase__dots"></div>
       </div>
       <div class="showcase__content">
-        <p class="showcase__name">Камин Версаль</p>
+        <p class="showcase__name">Камин Версаль в цвете Арктическая лагуна</p>
         <p class="showcase__desc">Бирюзовая глазурь, панорамная топка, современный&nbsp;интерьер</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
@@ -367,10 +367,11 @@
     <div class="showcase__item">
       <div class="showcase__gallery">
         <div class="showcase__track">
-          <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_3.webp" type="image/webp"><img src="images/bbq_albion_new_3.jpg" alt="Барбекю Альбион — общий вид веранды" loading="lazy" decoding="async"></picture></div>
-          <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_2.webp" type="image/webp"><img src="images/bbq_albion_new_2.jpg" alt="Барбекю Альбион — фронтальный вид" loading="lazy" decoding="async"></picture></div>
-          <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_1.webp" type="image/webp"><img src="images/bbq_albion_new_1.jpg" alt="Барбекю Альбион — два ракурса" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><img src="images/ac7de3c5_img_2K.jpg" alt="Барбекю Альбион — общий вид интерьера" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_2.webp" type="image/webp"><img src="images/bbq_albion_new_2.jpg" alt="Барбекю Альбион — общий вид интерьера" loading="lazy" decoding="async"></picture></div>
           <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_4.webp" type="image/webp"><img src="images/bbq_albion_new_4.jpg" alt="Барбекю Альбион — детали изразцов" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><source srcset="images/bbq_albion_new_5.webp" type="image/webp"><img src="images/bbq_albion_new_5.jpg" alt="Барбекю Альбион — крупный план топки" loading="lazy" decoding="async"></picture></div>
+          <div class="showcase__slide"><picture><img src="images/R5VF1811.jpg" alt="Барбекю Альбион — детали изразцов сверху" loading="lazy" decoding="async"></picture></div>
         </div>
         <button class="showcase__arrow showcase__arrow--left" aria-label="Назад">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -381,7 +382,7 @@
         <div class="showcase__dots"></div>
       </div>
       <div class="showcase__content">
-        <p class="showcase__name">Барбекю комплекс Альбион</p>
+        <p class="showcase__name">Барбекю комплекс Альбион в глазури Белый Антик</p>
         <p class="showcase__desc">Белые изразцы, мангал, рабочая зона, классический&nbsp;стиль</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
@@ -789,10 +790,10 @@
       var phone = form.querySelector('[name="phone"]').value.trim();
       if (!name || !phone) return;
       var text = '\u{1F4CB} Новая заявка с сайта!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + '\n\u{1F4C4} Страница: Главная';
-      fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
+      fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: text })
+        body: JSON.stringify({ chat_id: '-1003871745435', text: text })
       });
       form.innerHTML = '<p style="color:#25D366;font-size:1.1rem;padding:20px 0;">Спасибо! Мы свяжемся с вами в ближайшее время.</p>';
     });

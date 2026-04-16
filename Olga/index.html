@@ -784,10 +784,10 @@
       var phone = form.querySelector('[name="phone"]').value.trim();
       if (!name || !phone) return;
       var text = '\u{1F4CB} Новая заявка с сайта!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + '\n\u{1F4C4} Страница: Главная';
-      fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
+      fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: text })
+        body: JSON.stringify({ chat_id: '-1003871745435', text: text })
       });
       form.innerHTML = '<p style="color:#25D366;font-size:1.1rem;padding:20px 0;">Спасибо! Мы свяжемся с вами в ближайшее время.</p>';
     });

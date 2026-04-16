@@ -624,10 +624,10 @@
           var tgText = '\u{1F4CB} Новая заявка с сайта!\n\u{1F464} Имя: ' + nameInput.value.trim() + '\n\u{1F4DE} Телефон: +7' + phoneInput.value.trim();
           if (msgInput && msgInput.value.trim()) tgText += '\n\u{1F4AC} Комментарий: ' + msgInput.value.trim();
           tgText += '\n\u{1F4C4} Страница: Контакты';
-          fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
+          fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: tgText })
+            body: JSON.stringify({ chat_id: '-1003871745435', text: tgText })
           });
           form.style.display = 'none';
           successMsg.classList.add('active');

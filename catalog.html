@@ -2298,11 +2298,11 @@
         var tgText = '\u{1F4CB} Новая заявка с сайта!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + '\n\u{1F6D2} Товар: ' + currentRequestProduct;
         if (message) tgText += '\n\u{1F4AC} Комментарий: ' + message;
         tgText += '\n\u{1F4C4} Страница: Каталог';
-        var tgUrl = 'https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage';
+        var tgUrl = 'https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage';
         fetch(tgUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: tgText })
+          body: JSON.stringify({ chat_id: '-1003871745435', text: tgText })
         });
         requestModalBody.innerHTML =
           '<div class="request-modal__success">' +
